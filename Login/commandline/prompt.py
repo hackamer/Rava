@@ -1,9 +1,11 @@
+import time
 from hashlib import sha512
 import os
 import bcrypt
 import sqlite3
+import wget
+import tempfile
 # timing
-import time
 start_time = time.time()
 
 
@@ -26,13 +28,23 @@ def crypting(text: str, salt: bytes) -> bytes:
 
 
 def Login(username: str, password: str):
-    connection = sqlite3.connect("Login.db")
+    URL = 'https://github.com/hackamer/Rava/releases/download/data/Login.db'
+    file = tempfile.gettempdir()+"\Login.db"  # type: ignore
+    try:
+        os.remove(file)
+    except:
+        pass
+    try:
+        wget.download(URL, file)
+    except:
+        print("connection Error")
+        return False
+    connection = sqlite3.connect(file)
     cursor = connection.cursor()
     qsalt = "SELECT salt FROM login_data WHERE username = ?"
     cursor.execute(qsalt, (Hashing(username),))
     connection.commit()
     salt = cursor.fetchall()
-
     if salt:
         salt = salt[0][0]
         q = "SELECT * FROM login_data WHERE username = ? AND password = ?"
@@ -114,9 +126,7 @@ def selector(username: str, file="Login.db", table="login_data"):
 
 
 # funtions
-reset()
-insertor("Hossein", "P@ssw0rd")
-insertor("Alieh", "33129545")
+
 Login("Hossein", "P@ssw0rd")
 Login("Alieh", "33129545")
 # timing
