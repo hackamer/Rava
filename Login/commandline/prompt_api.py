@@ -5,8 +5,8 @@ from supabase import create_client, Client
 
 # timing
 start_time = time.time()
-url = "https://pypkskldsugglpanlwxo.supabase.co"
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB5cGtza2xkc3VnZ2xwYW5sd3hvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE5NDc1OTksImV4cCI6MjA1NzUyMzU5OX0.OvEYkO5qkjLE0JL153pTCXuocKEscSMhTJJI__aMJXs"
+url = "supabase.co"
+key = ""
 supabase: Client = create_client(str(url), str(key))
 table = "rava_login"
 
