@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Login</class>
+ <widget class="QMainWindow" name="Login">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -280,9 +280,9 @@ QCommandLinkButton{
      <number>0</number>
     </property>
     <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout">
+     <layout class="QGridLayout" name="gl_login">
       <item row="5" column="1">
-       <widget class="QCommandLinkButton" name="commandLinkButton">
+       <widget class="QCommandLinkButton" name="lnk_signup">
         <property name="layoutDirection">
          <enum>Qt::RightToLeft</enum>
         </property>
@@ -301,7 +301,7 @@ QCommandLinkButton{
        </widget>
       </item>
       <item row="4" column="0" colspan="3">
-       <widget class="QPushButton" name="send">
+       <widget class="QPushButton" name="btn_sendlogin">
         <property name="styleSheet">
          <string notr="true">QPushButton {
   background-color: rgb(255, 179, 0);
@@ -338,21 +338,21 @@ QPushButton:pressed{
        </widget>
       </item>
       <item row="3" column="0" colspan="3">
-       <widget class="QLineEdit" name="password">
+       <widget class="QLineEdit" name="txt_password">
         <property name="placeholderText">
          <string>رمز عبور</string>
         </property>
        </widget>
       </item>
       <item row="2" column="0" colspan="3">
-       <widget class="QLineEdit" name="username">
+       <widget class="QLineEdit" name="txt_username">
         <property name="placeholderText">
          <string>نام کاربری</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0" colspan="3">
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="lbl_login">
         <property name="font">
          <font>
           <family>Vazirmatn</family>
@@ -378,6 +378,12 @@ QPushButton:pressed{
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>txt_username</tabstop>
+  <tabstop>txt_password</tabstop>
+  <tabstop>btn_sendlogin</tabstop>
+  <tabstop>lnk_signup</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

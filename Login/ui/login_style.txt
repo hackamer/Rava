@@ -1,44 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
- <class>SignUp</class>
- <widget class="QMainWindow" name="SignUp">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>250</height>
-   </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>400</width>
-    <height>250</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>400</width>
-    <height>250</height>
-   </size>
-  </property>
-  <property name="windowTitle">
-   <string>ثبت کاربر جدید</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">QMainWindow{
+QMainWindow{
 background-color:qlineargradient(spread:pad, x1:0.528, y1:0, x2:0.518, y2:1, stop:0.572139 rgba(255, 229, 145, 255), stop:1 rgba(255, 198, 183, 255));
 }
 
 QWidget {
   background-color:;
-  font-family: Vazirmatn;
+  font-family: IRANYekanX;
   color:darkblue;
   
 }
 QLabel {
   color: rgb(0, 9, 105);
-  font-weight: 600;
+  font-weight: bold;
   font: 12pt ;
 
 }
@@ -235,34 +207,7 @@ QCheckBox::indicator:unchecked {
     border-radius: 3px;
     background-color: #fbfdfa;
 }
-QPushButton {
-  background-color: rgb(255, 179, 0);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 8px;
-  border: 1px solid rgb(255, 179, 0);
-  padding: 5px 15px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  outline: 0px;
-  font: 10pt ;
-}
 
-QPushButton:hover{
-  background-color: rgb(236, 118, 0);
-}
-
-QPushButton:pressed{
-  background-color: rgb(255, 227, 82);
-  border-color:;
-  font-weight: 600;
-  border-radius: 8px;
-  border: 3px solid rgb(255, 170, 0);
-  padding: 5px 15px;
-  margin-top: 0px;
-  outline: 0px;
-  color: rgb(255, 170, 0);
-}
 
 QMenu:hover{
   background-color: #0b5ed7;
@@ -290,73 +235,9 @@ QLineEdit:focus, QTextEdit:focus, QPlainTextEdit:focus, QSpinBox:focus, QDoubleS
 }
 QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabled, QDoubleSpinBox:disabled, QTimeEdit:disabled, QDateEdit:disabled, QDateTimeEdit:disabled {
     color: #b9b9b9;
-}</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="0">
-     <layout class="QGridLayout" name="gl_signup">
-      <item row="2" column="0">
-       <widget class="QLineEdit" name="txt_username">
-        <property name="placeholderText">
-         <string>نام کاربری</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLineEdit" name="txt_password">
-        <property name="placeholderText">
-         <string>رمز عبور</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QPushButton" name="btn_sendsignup">
-        <property name="text">
-         <string>ثبت</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="lbl_signup">
-        <property name="font">
-         <font>
-          <family>Vazirmatn</family>
-          <pointsize>12</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>ثبت کاربر جدید</string>
-        </property>
-        <property name="textFormat">
-         <enum>Qt::PlainText</enum>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLineEdit" name="txt_repeatpassword">
-        <property name="placeholderText">
-         <string>تکرار رمز عبور</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
- </widget>
- <tabstops>
-  <tabstop>txt_username</tabstop>
-  <tabstop>txt_password</tabstop>
-  <tabstop>txt_repeatpassword</tabstop>
-  <tabstop>btn_sendsignup</tabstop>
- </tabstops>
- <resources/>
- <connections/>
-</ui>
+}
+QCommandLinkButton{
+  
+	background-color: ;
+
+}
