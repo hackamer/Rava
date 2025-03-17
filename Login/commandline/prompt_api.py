@@ -2,11 +2,18 @@ import time
 from hashlib import sha512
 import bcrypt
 from supabase import create_client, Client
+import json
 
 # timing
 start_time = time.time()
-url = "supabase.co"
-key = ""
+with open('config.json') as config_file:
+    config = json.load(config_file)
+url = config['API_URL']
+key = config['API_KEY']
+
+print("API URL:", url)
+print("API Key:", key)
+
 supabase: Client = create_client(str(url), str(key))
 table = "rava_login"
 
