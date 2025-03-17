@@ -18,10 +18,8 @@ class Ui_SignUp(object):
         with open('signup_style.txt') as stylefile:
             style = stylefile.read()
         SignUp.setStyleSheet(style)
-        self.iranyekanr = QtGui.QFontDatabase.addApplicationFont(
-            "IRANYekanX_Regular.ttf")
-        self.iranyekanb = QtGui.QFontDatabase.addApplicationFont(
-            "IRANYekanX_Bold.ttf")
+        self.iranyekan = QtGui.QFontDatabase.addApplicationFont(
+            "fonts/IRANYekanX_Regular.ttf")
         self.centralwidget = QtWidgets.QWidget(parent=SignUp)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
