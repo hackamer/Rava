@@ -10,10 +10,8 @@ with open('config.json') as config_file:
     config = json.load(config_file)
 url = config['API_URL']
 key = config['API_KEY']
-
-print("API URL:", url)
-print("API Key:", key)
-
+hash_salt = config['SALT_HASH']
+crypt_salt = config['SALT_CRYPT']
 supabase: Client = create_client(str(url), str(key))
 table = "rava_login"
 
@@ -23,14 +21,14 @@ def generate_salt() -> bytes:
 
 
 def Hashing(text: str) -> str:
-    text += "M<Ng8EmHU}?*k$~v-u)nz(&Jsr:>L3wa4edq;t_xZ/'!D{AK5G"
+    text += hash_salt
     m = sha512()
     m.update(text.encode())
     return m.hexdigest()
 
 
 def crypting(text: str, salt: bytes) -> bytes:
-    text += "T2/)$gmx*ju8_&<}.>r94=`]@y7;AY(#G3SvV?B!EdC'FpXh6D"
+    text += crypt_salt
     text_bytes = text.encode('utf-8')
     hashed_password = bcrypt.hashpw(text_bytes, salt)
     return hashed_password
@@ -58,7 +56,7 @@ def Login(username: str, password: str):
 # dbmanager
 
 
-def remover(username: str, file: str = "Login.db") -> bool:
+def remover(username: str) -> bool:
 
     response = (
         supabase.table(table)
