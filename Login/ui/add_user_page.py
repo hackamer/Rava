@@ -31,6 +31,7 @@ class Ui_SignUp(object):
         self.gl_signup.addWidget(self.txt_username, 2, 0, 1, 1)
         self.txt_password = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.txt_password.setObjectName("txt_password")
+        self.txt_password.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.gl_signup.addWidget(self.txt_password, 3, 0, 1, 1)
         self.btn_sendsignup = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btn_sendsignup.setObjectName("btn_sendsignup")
@@ -50,10 +51,12 @@ class Ui_SignUp(object):
         self.txt_repeatpassword = QtWidgets.QLineEdit(
             parent=self.centralwidget)
         self.txt_repeatpassword.setObjectName("txt_repeatpassword")
+        self.txt_repeatpassword.setEchoMode(
+            QtWidgets.QLineEdit.EchoMode.Password)
+
         self.gl_signup.addWidget(self.txt_repeatpassword, 4, 0, 1, 1)
         self.gridLayout_2.addLayout(self.gl_signup, 0, 0, 1, 1)
         SignUp.setCentralWidget(self.centralwidget)
-
         self.retranslateUi(SignUp)
         QtCore.QMetaObject.connectSlotsByName(SignUp)
         SignUp.setTabOrder(self.txt_username, self.txt_password)

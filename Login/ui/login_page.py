@@ -16,7 +16,7 @@ class Ui_Login(object):
         Login.setMinimumSize(QtCore.QSize(400, 259))
         Login.setMaximumSize(QtCore.QSize(438, 259))
         Login.setLayoutDirection(QtCore.Qt.LayoutDirection.RightToLeft)
-        with open('login_style.txt') as stylefile:
+        with open('ui/login_style.txt') as stylefile:
             style = stylefile.read()
         Login.setStyleSheet(style)
         self.iranyekan = QtGui.QFontDatabase.addApplicationFont(
@@ -70,6 +70,7 @@ class Ui_Login(object):
         self.gl_login.addWidget(self.btn_sendlogin, 4, 0, 1, 3)
         self.txt_password = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.txt_password.setObjectName("txt_password")
+        self.txt_password.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.gl_login.addWidget(self.txt_password, 3, 0, 1, 3)
         self.txt_username = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.txt_username.setObjectName("txt_username")

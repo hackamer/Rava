@@ -4,11 +4,12 @@ background-color:qlineargradient(spread:pad, x1:0.528, y1:0, x2:0.518, y2:1, sto
 
 QWidget {
   background-color:;
-  font-family: IRANYekanX;
+  font-family: IRANYekanXFaNum;
   color:darkblue;
   
 }
 QLabel {
+  font-family: IRANYekanXFaNum ExtraBold;
   color: rgb(0, 9, 105);
   font-weight: 600;
   font: 12pt ;

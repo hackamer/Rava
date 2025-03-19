@@ -4,14 +4,14 @@ background-color:qlineargradient(spread:pad, x1:0.528, y1:0, x2:0.518, y2:1, sto
 
 QWidget {
   background-color:;
-  font-family: IRANYekanX;
+  font-family: IRANYekanXFaNum;
   color:darkblue;
   
 }
 QLabel {
+  font-family:IRANYekanXFaNum ExtraBold;
   color: rgb(0, 9, 105);
-  font-weight: bold;
-  font: 12pt ;
+  font: 14pt ;
 
 }
 QLabel#heading {
@@ -23,7 +23,7 @@ QLabel#heading {
 QLabel#subheading {
   color: #0f1925;
   font-size: 12px;
-  font-weight: normal;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 QTabWidget {
@@ -237,7 +237,10 @@ QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabl
     color: #b9b9b9;
 }
 QCommandLinkButton{
-  
+  font-size:10pt;
 	background-color: ;
+  font-family:IRANYekanXFaNum ExtraBold;
 
 }
+
+
