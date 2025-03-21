@@ -290,7 +290,7 @@ class Ui_SignUp(object):
         SignUp.setMinimumSize(QtCore.QSize(400, 250))
         SignUp.setMaximumSize(QtCore.QSize(400, 250))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ui/ravalogo.png"))
+        icon.addPixmap(QtGui.QPixmap("ui/images/ravalogo.png"))
         SignUp.setWindowIcon(icon)
         with open('ui/signup_style.txt') as stylefile:
             style = stylefile.read()
@@ -354,26 +354,42 @@ class login(QtWidgets.QMainWindow, Ui_Login):
         self.lnk_signup.clicked.connect(self.opensignup)
         self.btn_sendlogin.clicked.connect(self.login)
 
-    def login(self):
+    def login(self) -> bool:
         username = self.txt_username.text()
         password = self.txt_password.text()
+        if username == '' or password == '':
+            msg("خطای خالی بودن نام کاربری ", "W")
+            return False
         self.lnk_signup.setEnabled(False)
+        self.btn_sendlogin.setEnabled(False)
+        self.btn_sendlogin.setText("درحال ورود")
+        self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.WaitCursor))
         try:
             logincheck = run_in_thread(Login, username, password)
         except:
             msg("خطای غیر قابل پیش بینی نرم افزار", "C")
             self.lnk_signup.setEnabled(True)
+            self.btn_sendlogin.setEnabled(True)
+            self.btn_sendlogin.setText("ورود")
+            self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
             return False
         if logincheck:
+            self.lnk_signup.setEnabled(True)
+            self.btn_sendlogin.setEnabled(True)
+            self.btn_sendlogin.setText("ورود")
+            self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
             msg(login_msg, login_status)
             self.main = Main()
             self.main.setupUi(self)
             self.main.show()
             self.close()
-            self.lnk_signup.setEnabled(True)
+            return True
         else:
+            self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
             msg(login_msg, login_status)
             self.lnk_signup.setEnabled(True)
+            self.btn_sendlogin.setEnabled(True)
+            self.btn_sendlogin.setText("ورود")
             return False
 
     def opensignup(self):
@@ -391,18 +407,41 @@ class SignUp(QtWidgets.QMainWindow, Ui_SignUp):
     def signup(self):
         username = self.txt_username.text()
         password = self.txt_password.text()
+        self.btn_sendsignup.setEnabled(False)
+        self.btn_sendsignup.setText("درحال ثبت نام")
+        self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.WaitCursor))
         passwordrep = self.txt_repeatpassword.text()
-        if password != passwordrep:
+        if username == '' or password == '':
+            self.btn_sendsignup.setEnabled(True)
+            self.btn_sendsignup.setText("ثبت نام")
+            self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
+            msg("خطای خالی بودن نام کاربری یا رمز عبور", "W")
+            self.btn_sendsignup.setEnabled(True)
+            self.btn_sendsignup.setText("ثبت نام")
+            return False
+        elif password != passwordrep:
+            self.btn_sendsignup.setEnabled(True)
+            self.btn_sendsignup.setText("ثبت نام")
+            self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
             msg("رمز عبور تکراری مطابقت ندارد", "W")
+            self.btn_sendsignup.setEnabled(True)
+            self.btn_sendsignup.setText("ثبت نام")
             return False
 
         elif run_in_thread(insertor, username, password):
+            self.btn_sendsignup.setEnabled(True)
+            self.btn_sendsignup.setText("ثبت نام")
+            self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
             msg(signup_msg, signup_status)
             self.returnlogin()
-
             return True
         else:
+            self.btn_sendsignup.setEnabled(True)
+            self.btn_sendsignup.setText("ثبت نام")
+            self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
             msg(signup_msg, signup_status)
+            self.btn_sendsignup.setEnabled(True)
+            self.btn_sendsignup.setText("ثبت نام")
             return False
 
     def returnlogin(self):

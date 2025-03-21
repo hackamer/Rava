@@ -1,0 +1,9 @@
+self.fontregular = QtGui.QFontDatabase.addApplicationFont(
+    "fonts/Morabba_FaNum-Regular.ttf")
+self.fontebold = QtGui.QFontDatabase.addApplicationFont(
+    "fonts/Morabba_FaNum-Heavy.ttf")
+icon = QtGui.QIcon()
+icon.addPixmap(QtGui.QPixmap("images/ravalogo.png"))
+Rava.setWindowIcon(icon)
+with open("rava_style.txt") as stylefile:
+    style = stylefile.read()
