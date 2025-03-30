@@ -169,7 +169,7 @@ QComboBox::drop-down:button{
 }
 
 QComboBox::down-arrow {
-	image: url(:/image/down.png);
+	image: url(./images/down.png);
     width: 15px;
     height: 13px;
 	padding: 1px;
@@ -280,26 +280,26 @@ QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabl
 
 QSpinBox::up-button {
     width: 14px;    
-	image: url(:/image/up.png);
+	image: url(./images/up.png);
     margin-top: 2px;
     margin-right: 3px;
     }
 QSpinBox::down-button {
     width: 14px;    
-	image: url(:/image/down.png);
+	image: url(./images/down.png);
     margin-bottom: 2px;
     margin-right: 3px;
     }
  
 QTimeEdit::up-button {
     width: 14px;    
-	image: url(:/image/up.png);
+	image: url(./images/up.png);
     margin-top: 2px;
     margin-right: 3px;
     }
 QTimeEdit::down-button {
     width: 14px;    
-	image: url(:/image/down.png);
+	image: url(./images/down.png);
     margin-bottom: 2px;
     margin-right: 3px;
     }</string>

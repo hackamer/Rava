@@ -32,11 +32,12 @@ background-color:qlineargradient(spread:pad, x1:0.528, y1:0, x2:0.518, y2:1, sto
 
 QWidget {
   background-color:;
-  font-family: Vazirmatn;
+  font-family: IRANYekanXFaNum;
   color:darkblue;
   
 }
 QLabel {
+ font-family:IRANYekanXFaNum ExtraBold;
   color: rgb(0, 9, 105);
   font-weight: 600;
   font: 12pt ;
@@ -298,6 +299,16 @@ QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabl
      <layout class="QGridLayout" name="gl_signup">
       <item row="2" column="0">
        <widget class="QLineEdit" name="txt_username">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
         <property name="placeholderText">
          <string>نام کاربری</string>
         </property>
@@ -305,6 +316,19 @@ QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabl
       </item>
       <item row="3" column="0">
        <widget class="QLineEdit" name="txt_password">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
         <property name="placeholderText">
          <string>رمز عبور</string>
         </property>
@@ -312,6 +336,16 @@ QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabl
       </item>
       <item row="5" column="0">
        <widget class="QPushButton" name="btn_sendsignup">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
         <property name="text">
          <string>ثبت</string>
         </property>
@@ -321,11 +355,12 @@ QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabl
        <widget class="QLabel" name="lbl_signup">
         <property name="font">
          <font>
-          <family>Vazirmatn</family>
+          <family>IRANYekanXFaNum ExtraBold</family>
           <pointsize>12</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
+          <kerning>false</kerning>
          </font>
         </property>
         <property name="text">
@@ -341,6 +376,19 @@ QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabl
       </item>
       <item row="4" column="0">
        <widget class="QLineEdit" name="txt_repeatpassword">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
         <property name="placeholderText">
          <string>تکرار رمز عبور</string>
         </property>

@@ -6,21 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>438</width>
-    <height>259</height>
+    <width>400</width>
+    <height>250</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>438</width>
-    <height>259</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>438</width>
-    <height>259</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>صفحه ورود</string>
@@ -35,11 +23,12 @@ background-color:qlineargradient(spread:pad, x1:0.528, y1:0, x2:0.518, y2:1, sto
 
 QWidget {
   background-color:;
-  font-family: Vazirmatn;
+  font-family: IRANYekanXFaNum;
   color:darkblue;
   
 }
 QLabel {
+  font-family: IRANYekanXFaNum ExtraBold;
   color: rgb(0, 9, 105);
   font-weight: 600;
   font: 12pt ;
@@ -268,7 +257,7 @@ QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabl
     color: #b9b9b9;
 }
 QCommandLinkButton{
-  
+    font-family: IRANYekanXFaNum ExtraBold;
 	background-color: ;
 
 }
@@ -283,6 +272,12 @@ QCommandLinkButton{
      <layout class="QGridLayout" name="gl_login">
       <item row="5" column="1">
        <widget class="QCommandLinkButton" name="lnk_signup">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum ExtraBold</family>
+          <kerning>false</kerning>
+         </font>
+        </property>
         <property name="layoutDirection">
          <enum>Qt::RightToLeft</enum>
         </property>
@@ -302,6 +297,16 @@ QCommandLinkButton{
       </item>
       <item row="4" column="0" colspan="3">
        <widget class="QPushButton" name="btn_sendlogin">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
   background-color: rgb(255, 179, 0);
@@ -339,6 +344,19 @@ QPushButton:pressed{
       </item>
       <item row="3" column="0" colspan="3">
        <widget class="QLineEdit" name="txt_password">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
         <property name="placeholderText">
          <string>رمز عبور</string>
         </property>
@@ -346,6 +364,16 @@ QPushButton:pressed{
       </item>
       <item row="2" column="0" colspan="3">
        <widget class="QLineEdit" name="txt_username">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
         <property name="placeholderText">
          <string>نام کاربری</string>
         </property>
@@ -355,11 +383,12 @@ QPushButton:pressed{
        <widget class="QLabel" name="lbl_login">
         <property name="font">
          <font>
-          <family>Vazirmatn</family>
+          <family>IRANYekanXFaNum ExtraBold</family>
           <pointsize>12</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
+          <kerning>false</kerning>
          </font>
         </property>
         <property name="text">
