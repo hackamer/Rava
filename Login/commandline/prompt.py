@@ -1,12 +1,22 @@
-import time
-from hashlib import sha512
 import os
 import bcrypt
 import sqlite3
-import wget
-import tempfile
-# timing
-start_time = time.time()
+
+folderpath = os.path.join(os.path.join(
+    os.environ['USERPROFILE']), 'Documents', 'Rava')
+
+try:
+    os.mkdir(folderpath)
+except FileExistsError:
+    print()
+except PermissionError:
+    folderpath = os.path.join(os.path.join(
+        os.environ['USERPROFILE']), 'Rava')
+
+
+filepath = os.path.join(folderpath, "Rava.db")
+connection = sqlite3.connect(filepath)
+cursor = connection.cursor()
 
 
 def generate_salt() -> bytes:
@@ -14,122 +24,103 @@ def generate_salt() -> bytes:
 
 
 def Hashing(text: str) -> str:
-    text += "SlMdlasdmij|||q&&$14kadnzxc$$@#9ads"
-    m = sha512()
-    m.update(text.encode())
-    return m.hexdigest()
+    return text
 
 
 def crypting(text: str, salt: bytes) -> bytes:
-    text += "SlFz_Hp2madmnvnduarhf73298rfafa|&@#"
+    text += "b:2S]3zeFU_E>WNq!rPs^[5Rn)CZw(LtYK`hV;8/"
     text_bytes = text.encode('utf-8')
     hashed_password = bcrypt.hashpw(text_bytes, salt)
     return hashed_password
 
 
-def Login(username: str, password: str):
-    URL = 'https://github.com/hackamer/Rava/releases/download/data/Login.db'
-    file = tempfile.gettempdir()+"\Login.db"  # type: ignore
-    try:
-        os.remove(file)
-    except:
-        pass
-    try:
-        wget.download(URL, file)
-    except:
-        print("connection Error")
-        return False
-    connection = sqlite3.connect(file)
-    cursor = connection.cursor()
+def Login(username: str, password: str) -> bool:
+    global login_msg, login_status
     qsalt = "SELECT salt FROM login_data WHERE username = ?"
-    cursor.execute(qsalt, (Hashing(username),))
+    cursor.execute(qsalt, (username,))
     connection.commit()
     salt = cursor.fetchall()
     if salt:
         salt = salt[0][0]
         q = "SELECT * FROM login_data WHERE username = ? AND password = ?"
-        cursor.execute(q, (Hashing(username), crypting(
+        cursor.execute(q, (username, crypting(
             password, salt.encode('utf-8'))))
         connection.commit()
         result = cursor.fetchall()
         if result:
+            login_status = "I"
+            login_msg = "ورود با موفقیت آمیز انجام شد"
             print("login OK")
-
+            return True
         else:
-            print("Failed in LogIn")
+            login_status = "C"
+            login_msg = "نام کاربری یا رمز عبور اشتباه است"
+            return False
     else:
-        print("The Username Not True Login Failed")
+        login_status = "C"
+        login_msg = "نام کاربری یا رمز عبور اشتباه است"
+        return False
 
-# dbmanager
 
-
-def reset(file: str = "Login.db"):
+def reset(file):
     if os.path.exists(file):
         os.remove(file)
     else:
         print("The file does not exist")
 
 
-def creator(file: str = "Login.db", table: str = "login_data"):
-    connection = sqlite3.connect(file)
-    cursor = connection.cursor()
+def creator(table: str = "login_data"):
     q = "CREATE TABLE IF NOT EXISTS {} (username TEXT, password TEXT,salt TEXT)".format(
         table)
     cursor.execute(q)
     connection.commit()
-    connection.close()
 
 
-def insertor(username: str, password: str, file: str = "Login.db", table: str = "login_data"):
+def insertor(username: str, password: str, table: str = "login_data") -> bool:
+    global signup_status, signup_msg
     creator()
-    if Hashing(username) == selector(username, file, table):
-        print('Exist Username')
+    if username == selector(username, table):
+        signup_status = "C"
+        signup_msg = "نام کاربری از قبل تعریف شده"
         return False
     salt = generate_salt()
-    connection = sqlite3.connect(file)
-    cursor = connection.cursor()
     q = "INSERT INTO {} (username, password,salt) VALUES (?, ?, ?)".format(
         table)
-    cursor.execute(q, (Hashing(username), crypting(
+    cursor.execute(q, (username, crypting(
         password, salt), salt.decode()))
     connection.commit()
-    connection.close()
+    signup_status = "I"
+    signup_msg = "نام کاربری با موفقیت وارد شد"
+    return True
 
 
-def remover(username: str, file="Login.db", table="login_data") -> str:
+def remover(username: str, table="rava_login") -> str:
     creator()
-    connection = sqlite3.connect(file)
-    cursor = connection.cursor()
     q = "DELETE FROM {} WHERE username = ?".format(table)
-    cursor.execute(q, (Hashing(username),))
+    cursor.execute(q, (username,))
     result = cursor.fetchall()
     connection.commit()
-    connection.close()
     if result:
         return "OK"
     else:
         return "NO"
 
 
-def selector(username: str, file="Login.db", table="login_data"):
-    connection = sqlite3.connect(file)
-    cursor = connection.cursor()
+def selector(username: str, table="rava_login"):
     q = "SELECT username FROM {} WHERE username = ?".format(table)
-    cursor.execute(q, (Hashing(username),))
+    cursor.execute(q, (username,))
     result = cursor.fetchall()
     connection.commit()
-    connection.close()
     if result:
         return result[0][0]
     else:
         return False
 
 
-# funtions
-
-Login("Hossein", "P@ssw0rd")
-Login("Alieh", "33129545")
-# timing
-end_time = time.time()
-elapsed_time = end_time - start_time
-print(f"Elapsed time: {elapsed_time} seconds")
+#  run funtions
+insertor("hackamer", "P@ssw0rd")
+insertor("Hossein", "SlFz")
+insertor("Alieh", "5764")
+Login("hackamer", "P@ssw0rd")
+Login("Hossein", "SlFz")
+Login("Alieh", "5764")

@@ -2,8 +2,24 @@ import sys
 from PyQt5 import uic, QtGui, QtWidgets, QtCore
 import threading
 import bcrypt
-import sqlite3
-import os
+import json
+from supabase import create_client, Client
+
+
+def run_in_thread(fun, arg1, arg2):
+    lock = [True]
+    retu = [None]
+
+    def make_lock():
+        x = fun(arg1, arg2)
+        retu[0] = x
+        lock[0] = False
+
+    thr = threading.Thread(None, make_lock)
+    thr.start()
+    while lock[0]:
+        app.processEvents()
+    return (retu[0])
 
 
 def msg(text: str, status: str):
@@ -17,119 +33,113 @@ def msg(text: str, status: str):
 
 
 # Login funtions
-folderpath = os.path.join(os.path.join(
-    os.environ['USERPROFILE']), 'Documents', 'Rava')
-
-try:
-    os.mkdir(folderpath)
-except FileExistsError:
-    print()
-except PermissionError:
-    folderpath = os.path.join(os.path.join(
-        os.environ['USERPROFILE']), 'Rava')
-
-
-filepath = os.path.join(folderpath, "Rava.db")
-connection = sqlite3.connect(filepath)
-cursor = connection.cursor()
+with open('config.json') as config_file:
+    config = json.load(config_file)
+url = config['API_URL']
+key = config['API_KEY']
+hash_salt = config['SALT_HASH']
+crypt_salt = config['SALT_CRYPT']
+supabase: Client = create_client(str(url), str(key))
+table = "rava_login"
 
 
 def generate_salt() -> bytes:
     return bcrypt.gensalt()
 
 
-def Hashing(text: str) -> str:
-    return text
-
-
 def crypting(text: str, salt: bytes) -> bytes:
-    text += "b:2S]3zeFU_E>WNq!rPs^[5Rn)CZw(LtYK`hV;8/"
+    text += crypt_salt
     text_bytes = text.encode('utf-8')
     hashed_password = bcrypt.hashpw(text_bytes, salt)
     return hashed_password
 
 
 def Login(username: str, password: str) -> bool:
-    global login_msg, login_status
-    qsalt = "SELECT salt FROM login_data WHERE username = ?"
-    cursor.execute(qsalt, (username,))
-    connection.commit()
-    salt = cursor.fetchall()
-    if salt:
-        salt = salt[0][0]
-        q = "SELECT * FROM login_data WHERE username = ? AND password = ?"
-        cursor.execute(q, (username, crypting(
-            password, salt.encode('utf-8'))))
-        connection.commit()
-        result = cursor.fetchall()
-        if result:
-            login_status = "I"
-            login_msg = "ورود با موفقیت آمیز انجام شد"
-            print("login OK")
-            return True
-        else:
-            login_status = "C"
-            login_msg = "نام کاربری یا رمز عبور اشتباه است"
-            return False
+    global login_status
+    global login_msg
+    try:
+        salt_response = supabase.table(table).select(
+            "salt").eq('username', username).execute()
+    except:
+        login_status = "C"
+        login_msg = "مشکل در اتصال به اینترنت لطفا از اتصال به وب مطمئن شوید"
+        return False
+    try:
+        salt = salt_response.data[0]['salt']
+    except:
+        login_status = "C"
+        login_msg = "نام کاربری اشتباه است"
+        return False
+    username = username
+    password = crypting(password, salt.encode()).decode()
+    response = supabase.table(table).select(
+        "*").eq('username', username).eq('password', password).execute()
+    if response.data:
+        login_status = "I"
+        login_msg = "ورود با موفقیت آمیز انجام شد"
+        return True
+
     else:
         login_status = "C"
-        login_msg = "نام کاربری یا رمز عبور اشتباه است"
+        login_msg = "رمز عبور اشتباه است"
         return False
 
 
-def reset(file):
-    if os.path.exists(file):
-        os.remove(file)
+def remover(username: str) -> bool:
+
+    response = (
+        supabase.table(table)
+        .delete().eq("username", username)
+        .execute()
+    )
+    if response.data:
+        print("remove successful")
+        return True
     else:
-        print("The file does not exist")
+        print("problem in remove")
+        return False
 
 
-def creator(table: str = "login_data"):
-    q = "CREATE TABLE IF NOT EXISTS {} (username TEXT, password TEXT,salt TEXT)".format(
-        table)
-    cursor.execute(q)
-    connection.commit()
-
-
-def insertor(username: str, password: str, table: str = "login_data") -> bool:
-    global signup_status, signup_msg
-    creator()
-    if username == selector(username, table):
+def insertor(username: str, password: str) -> bool:
+    global signup_status
+    global signup_msg
+    salt = generate_salt().decode()
+    password = crypting(password, salt.encode()).decode()
+    if username == selector(username):
         signup_status = "C"
         signup_msg = "نام کاربری از قبل تعریف شده"
         return False
-    salt = generate_salt()
-    q = "INSERT INTO {} (username, password,salt) VALUES (?, ?, ?)".format(
-        table)
-    cursor.execute(q, (username, crypting(
-        password, salt), salt.decode()))
-    connection.commit()
-    signup_status = "I"
-    signup_msg = "نام کاربری با موفقیت وارد شد"
-    return True
-
-
-def remover(username: str, table="rava_login") -> str:
-    creator()
-    q = "DELETE FROM {} WHERE username = ?".format(table)
-    cursor.execute(q, (username,))
-    result = cursor.fetchall()
-    connection.commit()
-    if result:
-        return "OK"
-    else:
-        return "NO"
-
-
-def selector(username: str, table="rava_login"):
-    q = "SELECT username FROM {} WHERE username = ?".format(table)
-    cursor.execute(q, (username,))
-    result = cursor.fetchall()
-    connection.commit()
-    if result:
-        return result[0][0]
-    else:
+    if selector(username) == False:
+        signup_status = "C"
+        signup_msg = "مشکل در اتصال به اینترنت"
         return False
+    try:
+        response = (supabase.table(table).insert(
+            {"username": username, "password": password, "salt": salt})).execute()
+    except:
+        signup_status = "C"
+        signup_msg = "مشکل در اتصال به اینترنت"
+        return False
+    if response.data:
+        signup_status = "I"
+        signup_msg = "نام کاربری با موفقیت وارد شد"
+        return True
+    else:
+        signup_status = "C"
+        signup_msg = "مشکل غیر قابل پیش بینی"
+        return False
+
+
+def selector(username: str):
+    try:
+        response = supabase.table(table).select(
+            "username").eq("username", username).execute()
+    except:
+        return False
+    if response.data:
+        return response.data[0]['username']
+    else:
+        return True
 
 
 class Main(QtWidgets.QMainWindow):
@@ -183,7 +193,7 @@ class Signup_UI(QtWidgets.QMainWindow):
             self.btn_sendsignup.setEnabled(True)
             self.btn_sendsignup.setText("ثبت نام")
 
-        elif insertor(username, password):
+        elif run_in_thread(insertor, username, password):
             self.btn_sendsignup.setEnabled(True)
             self.btn_sendsignup.setText("ثبت نام")
             self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
@@ -247,7 +257,7 @@ class Login_UI(QtWidgets.QMainWindow):
         self.btn_sendlogin.setText("درحال ورود")
         self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.WaitCursor))
         try:
-            logincheck = Login(username, password)
+            logincheck = run_in_thread(Login, username, password)
         except:
             msg("خطای غیر قابل پیش بینی نرم افزار", "C")
             self.lnk_signup.setEnabled(True)
@@ -264,7 +274,7 @@ class Login_UI(QtWidgets.QMainWindow):
             print('hi there')
             self.main = Main()
             self.main.show()
-            # self.close()
+            self.close()
         else:
             self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
             msg(login_msg, login_status)
