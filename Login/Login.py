@@ -1,6 +1,5 @@
 import sys
 from PyQt5 import uic, QtGui, QtWidgets, QtCore
-import threading
 import bcrypt
 import sqlite3
 import os

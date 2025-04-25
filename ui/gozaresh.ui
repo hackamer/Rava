@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>870</width>
-    <height>726</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>گزارش پرستاری راوا</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../images/ravalogo.png</normaloff>../images/ravalogo.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -139,7 +143,7 @@ QComboBox{
   background-color: rgb(255, 252, 198);
 }
  QGroupBox{
-  font: 10pt ;
+  font-size:12pt;
 }
 
 QComboBox {
@@ -321,8 +325,8 @@ QTimeEdit::down-button {
        <widget class="QGroupBox" name="grp_nutrition">
         <property name="font">
          <font>
-          <family>Vazirmatn</family>
-          <pointsize>10</pointsize>
+          <family>IRANYekanXFaNum ExtraBold</family>
+          <pointsize>12</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -341,11 +345,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_eat">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -549,11 +554,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="placeholderText">
@@ -737,11 +743,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="placeholderText">
@@ -925,11 +932,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -1119,11 +1127,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="placeholderText">
@@ -1140,8 +1149,8 @@ QTimeEdit::down-button {
        <widget class="QGroupBox" name="grp_vitalsings">
         <property name="font">
          <font>
-          <family>Vazirmatn</family>
-          <pointsize>10</pointsize>
+          <family>IRANYekanXFaNum ExtraBold</family>
+          <pointsize>12</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -1335,11 +1344,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -1526,11 +1536,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -1717,11 +1728,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -1908,11 +1920,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -2099,11 +2112,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -2118,8 +2132,9 @@ QTimeEdit::down-button {
             <widget class="QCheckBox" name="che_pain">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>9</pointsize>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -2139,8 +2154,8 @@ QTimeEdit::down-button {
        <widget class="QGroupBox" name="grp_medicine">
         <property name="font">
          <font>
-          <family>Vazirmatn</family>
-          <pointsize>10</pointsize>
+          <family>IRANYekanXFaNum ExtraBold</family>
+          <pointsize>12</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -2331,7 +2346,8 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -2530,7 +2546,8 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="suffix">
@@ -2542,11 +2559,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbb_type">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -2763,7 +2781,8 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -2796,11 +2815,12 @@ QTimeEdit::down-button {
             <widget class="QPushButton" name="btn_savemedicine">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="text">
@@ -2990,11 +3010,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="placeholderText">
@@ -3011,11 +3032,12 @@ QTimeEdit::down-button {
        <widget class="QGroupBox" name="grp_moredetails">
         <property name="font">
          <font>
-          <family>Vazirmatn</family>
-          <pointsize>10</pointsize>
+          <family>IRANYekanXFaNum ExtraBold</family>
+          <pointsize>12</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
+          <kerning>false</kerning>
          </font>
         </property>
         <property name="title">
@@ -3210,11 +3232,12 @@ QTimeEdit::down-button {
            </property>
            <property name="font">
             <font>
-             <family>Vazirmatn</family>
+             <family>IRANYekanXFaNum</family>
              <pointsize>12</pointsize>
              <weight>50</weight>
              <italic>false</italic>
              <bold>false</bold>
+             <kerning>false</kerning>
             </font>
            </property>
           </widget>
@@ -3226,8 +3249,8 @@ QTimeEdit::down-button {
        <widget class="QGroupBox" name="grp_stateofmind">
         <property name="font">
          <font>
-          <family>Vazirmatn</family>
-          <pointsize>10</pointsize>
+          <family>IRANYekanXFaNum ExtraBold</family>
+          <pointsize>12</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -3267,11 +3290,12 @@ QTimeEdit::down-button {
             <widget class="QLabel" name="lbl_contentspeech">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="text">
@@ -3283,11 +3307,12 @@ QTimeEdit::down-button {
             <widget class="QLabel" name="lbl_speedspeech">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="text">
@@ -3299,11 +3324,12 @@ QTimeEdit::down-button {
             <widget class="QLabel" name="lbl_mood">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -3318,11 +3344,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_ratespeech">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -3357,11 +3384,12 @@ QTimeEdit::down-button {
             <widget class="QLabel" name="lbl_Illusion">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="text">
@@ -3373,11 +3401,12 @@ QTimeEdit::down-button {
             <widget class="QLabel" name="lbl_ratespeech">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="text">
@@ -3389,11 +3418,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_mood">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -3605,11 +3635,12 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="styleSheet">
@@ -3624,11 +3655,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_Illusion">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -3663,11 +3695,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_speedspeech">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -3702,11 +3735,12 @@ QTimeEdit::down-button {
             <widget class="QLabel" name="lbl_psychomotor">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="text">
@@ -3718,11 +3752,12 @@ QTimeEdit::down-button {
             <widget class="QLabel" name="lbl_suicidalthoughts">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="text">
@@ -3734,11 +3769,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_psychomotor">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -3768,11 +3804,12 @@ QTimeEdit::down-button {
             <widget class="QLabel" name="lbl_affection">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="text">
@@ -3784,11 +3821,12 @@ QTimeEdit::down-button {
             <widget class="QLabel" name="lbl_tonespeech">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="text">
@@ -3800,11 +3838,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_suicidalthoughts">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -3834,11 +3873,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_tonespeech">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -3873,11 +3913,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_affection">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -4079,8 +4120,9 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>9</pointsize>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -4267,8 +4309,9 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>9</pointsize>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -4283,11 +4326,12 @@ QTimeEdit::down-button {
             <widget class="QComboBox" name="cbx_contentspeech">
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
                <pointsize>10</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="layoutDirection">
@@ -4332,7 +4376,8 @@ QTimeEdit::down-button {
              </property>
              <property name="font">
               <font>
-               <family>Vazirmatn</family>
+               <family>IRANYekanXFaNum</family>
+               <kerning>false</kerning>
               </font>
              </property>
              <property name="frameShadow">
@@ -4358,11 +4403,12 @@ QTimeEdit::down-button {
        <widget class="QPushButton" name="btn_save">
         <property name="font">
          <font>
-          <family>Vazirmatn</family>
+          <family>IRANYekanXFaNum</family>
           <pointsize>10</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
+          <kerning>false</kerning>
          </font>
         </property>
         <property name="text">
@@ -4379,13 +4425,13 @@ QTimeEdit::down-button {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>870</width>
-     <height>27</height>
+     <width>800</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Vazirmatn</family>
+     <family>IRANYekanXFaNum</family>
     </font>
    </property>
    <property name="layoutDirection">
@@ -4439,7 +4485,7 @@ focus {
    <widget class="QMenu" name="menu_6">
     <property name="font">
      <font>
-      <family>Vazirmatn</family>
+      <family>IRANYekanXFaNum</family>
      </font>
     </property>
     <property name="styleSheet">
