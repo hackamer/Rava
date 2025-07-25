@@ -17,8 +17,7 @@ def msg(text: str, status: str):
 
 # Login funtions
 folderpath = os.path.join(os.path.join(
-    os.environ['USERPROFILE']), 'Documents', 'Rava')
-
+    os.environ['USERPROFILE']), 'AppData', 'Local', 'Rava')
 try:
     os.mkdir(folderpath)
 except FileExistsError:
@@ -28,7 +27,7 @@ except PermissionError:
         os.environ['USERPROFILE']), 'Rava')
 
 
-filepath = os.path.join(folderpath, "Rava.db")
+filepath = os.path.join(folderpath, "config.sys")
 connection = sqlite3.connect(filepath)
 cursor = connection.cursor()
 
@@ -237,10 +236,12 @@ class Login_UI(QtWidgets.QMainWindow):
         self.close()
 
     def sendlogin(self):
+        creator()
         username = self.txt_username.text()
         password = self.txt_password.text()
         if username == '' or password == '':
-            msg("خطای خالی بودن نام کاربری ", "W")
+            msg("خطای خالی بودن ", "W")
+
         self.lnk_signup.setEnabled(False)
         self.btn_sendlogin.setEnabled(False)
         self.btn_sendlogin.setText("درحال ورود")
