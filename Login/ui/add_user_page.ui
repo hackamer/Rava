@@ -41,7 +41,8 @@ QLabel {
   color: rgb(0, 9, 105);
   font-weight: 600;
   font: 12pt ;
-
+  margin-right: 10px;
+  margin-left: 10px;
 }
 QLabel#heading {
   color: #0f1925;
@@ -297,6 +298,18 @@ QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabl
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gl_signup">
+      <property name="leftMargin">
+       <number>14</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>14</number>
+      </property>
+      <property name="bottomMargin">
+       <number>14</number>
+      </property>
       <item row="2" column="0">
        <widget class="QLineEdit" name="txt_username">
         <property name="font">

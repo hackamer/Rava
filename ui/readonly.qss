@@ -171,7 +171,7 @@ QComboBox:enabled {
 QComboBox::drop-down {
     subcontrol-origin: padding;
     subcontrol-position: top right;
-    width: 36px;
+    width: 0px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
@@ -185,10 +185,8 @@ QComboBox::drop-down:button:enabled {
 }
 
 QComboBox::down-arrow {
-    image: url(./images/down.png);
-    width: 15px;
-    height: 13px;
-    padding: 1px;
+    width: 0px;
+    height: 0px;
 }
 
 QComboBox::down-arrow:disabled {
@@ -305,29 +303,19 @@ QLineEdit:focus, QTextEdit:focus, QPlainTextEdit:focus, QSpinBox:focus, QDoubleS
 }
 
 QSpinBox::up-button {
-    width: 14px;
-    image: url(./images/up.png);
-    margin-top: 2px;
-    margin-right: 3px;
+    width: 0px;
 }
 
 QSpinBox::down-button {
-    width: 14px;
-    image: url(./images/down.png);
-    margin-bottom: 2px;
-    margin-right: 3px;
+    width: 0px;
+
 }
 
 QTimeEdit::up-button {
-    width: 14px;
-    image: url(./images/up.png);
-    margin-top: 2px;
-    margin-right: 3px;
+    width: 0px;
 }
 
 QTimeEdit::down-button {
-    width: 14px;
-    image: url(./images/down.png);
-    margin-bottom: 2px;
-    margin-right: 3px;
+    width: 0px;
+
 }

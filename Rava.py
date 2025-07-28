@@ -11,6 +11,8 @@ from PyQt5 import uic, QtGui, QtWidgets, QtCore
 from unidecode import unidecode
 from cryptography.hazmat.primitives import hmac, hashes
 from cryptography.fernet import Fernet
+from notification import show_notification # Import the function from notification.py
+
 
 # -----------------------------
 # Global Variables and Paths
@@ -244,18 +246,19 @@ class Rava(QtWidgets.QMainWindow):
         self.setWindowIcon(icon)
         self.widgets()
         self.connectors()
-        self.txt_day.hide()
-        self.txt_month.hide()
-        self.txt_year.hide()
+        #self.txt_day.hide()
+        #self.txt_month.hide()
+        #self.txt_year.hide()
         self.lbl_pagemedicineX.hide()
         self.lbl_pagemedicine.hide()
         self.spb_numberpagemedicine.hide()
         self.btn_pagemedicine.hide()
         self.btn_pagereport.hide()
+        self.btn_pagereport_2.hide()
         self.lbl_pagereport.hide()
-        self.spb_numberpagereport.hide()
+        #self.spb_numberpagereport.hide()
         self.lbl_pagereportX.hide()
-        self.btn_checkread.hide()
+        #self.btn_checkread.hide()
         self.lbl_time.hide()
         self.lbl_reporter.hide()
 
@@ -328,20 +331,23 @@ class Rava(QtWidgets.QMainWindow):
         self.che_eyecontact = self.findChild(
             QtWidgets.QCheckBox, 'che_eyecontact')
         self.che_pain = self.findChild(QtWidgets.QCheckBox, 'che_pain')
-        self.che_read = self.findChild(QtWidgets.QCheckBox, 'che_read')
+        #self.che_read = self.findChild(QtWidgets.QCheckBox, 'che_read')
 
         self.btn_savemedicine = self.findChild(
             QtWidgets.QPushButton, 'btn_savemedicine')
         self.btn_save = self.findChild(QtWidgets.QPushButton, 'btn_save')
         self.btn_calculateBMI = self.findChild(
             QtWidgets.QPushButton, 'btn_calculateBMI')
-        self.btn_logout = self.findChild(QtWidgets.QPushButton, 'btn_logout')
+        #self.btn_logout = self.findChild(QtWidgets.QPushButton, 'btn_logout')
         self.btn_pagemedicine = self.findChild(
             QtWidgets.QPushButton, 'btn_pagemedicine')
         self.btn_pagereport = self.findChild(
             QtWidgets.QPushButton, 'btn_pagereport')
+        self.btn_pagereport_2 = self.findChild(
+            QtWidgets.QPushButton, 'btn_pagereport_2')
         self.btn_checkread = self.findChild(
             QtWidgets.QPushButton, 'btn_checkread')
+        self.btn_search = self.findChild(QtWidgets.QPushButton, 'btn_search')
 
     def connectors(self):
         """
@@ -350,9 +356,14 @@ class Rava(QtWidgets.QMainWindow):
         self.btn_save.clicked.connect(self.save)
         self.btn_savemedicine.clicked.connect(self.savemedicine)
         self.btn_calculateBMI.clicked.connect(self.calculateBMI)
-        self.che_read.stateChanged.connect(self.readmode)
-        self.btn_checkread.clicked.connect(self.checkread)
+        #اینجا وقتی که قبلا چک باکسه بود وقتی کلیک میشد تابع رید مود اجرا میشد
+        #self.che_read.stateChanged.connect(self.readmode)
+        #اما الان که جاش این کد زیر میاد و وقتی که دکمه جستجو و مرور گزارشات کلیک میشه تابع رید مود را اجرا میکند اما وقتی تست میکنی میبینی که اجرا نمیشه رید مد با فشردن این دکمه و اروری هم نمیده
+        self.btn_search.clicked.connect(self.readmode)
+        #self.btn_checkread.clicked.connect(self.checkread)
         self.btn_pagereport.clicked.connect(self.read)
+        self.btn_pagereport.clicked.connect(self.read)
+
 
     def verify_get(self, time, date, drug):
         SUM = ("username" +
@@ -495,7 +506,7 @@ class Rava(QtWidgets.QMainWindow):
         show_whitelist = {
             "txt_day", "txt_month", "txt_year",
             "btn_pagemedicine", "lbl_pagemedicine", "lbl_pagemedicineX",
-            "spb_numberpagemedicine", "btn_pagereport", "lbl_pagereport",
+            "spb_numberpagemedicine", "btn_pagereport","btn_pagereport_2", "lbl_pagereport",
             "spb_numberpagereport", "lbl_pagereportX", "btn_checkread"
         }
         if state == 2:
@@ -504,12 +515,12 @@ class Rava(QtWidgets.QMainWindow):
             for child in self.findChildren(QtWidgets.QWidget):
                 if child.objectName() in show_whitelist:
                     child.show()
-                elif child.objectName() == "btn_savemedicine":
+                elif child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI":
                     child.hide()
                 child.setEnabled(child.objectName() in show_whitelist or child.objectName() in {
                     "txt_year", "txt_month", "txt_day", "lotmain_3", "centralwidget", "txt_code",
-                    "spb_numberpagemedicine", "btn_pagemedicine", "grp_medicine", "lot_medicine", "che_read",
-                    "btn_pagereport", "lbl_pagereport", "spb_numberpagereport", "lbl_pagereportX", "btn_checkread", "btn_logout"
+                    "spb_numberpagemedicine", "btn_pagemedicine", "grp_medicine", "lot_medicine", "che_read","btn_search",
+                    "btn_pagereport","btn_pagereport_2", "lbl_pagereport", "spb_numberpagereport", "lbl_pagereportX", "btn_checkread", "btn_logout"
                 })
 
         elif state == 0:
@@ -518,13 +529,13 @@ class Rava(QtWidgets.QMainWindow):
             for child in self.findChildren(QtWidgets.QWidget):
                 if child.objectName() in show_whitelist:
                     child.hide()
-                elif child.objectName() == "btn_savemedicine":
+                elif child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI":
                     child.show()
                 self.lbl_time.hide()
                 self.lbl_reporter.hide()
                 # Enable all widgets except those in show_whitelist (if you want to disable them, otherwise keep enabled)
                 child.setEnabled(child.objectName(
-                ) not in show_whitelist or child.objectName() == "btn_savemedicine")
+                ) not in show_whitelist or child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI")
 
     def checkread(self):
         global response

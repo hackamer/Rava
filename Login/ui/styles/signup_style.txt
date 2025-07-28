@@ -14,6 +14,8 @@ QLabel {
   font-weight: 600;
   font: 12pt ;
 
+
+
 }
 QLabel#heading {
   color: #0f1925;
