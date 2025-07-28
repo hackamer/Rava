@@ -509,33 +509,33 @@ class Rava(QtWidgets.QMainWindow):
             "spb_numberpagemedicine", "btn_pagereport","btn_pagereport_2", "lbl_pagereport",
             "spb_numberpagereport", "lbl_pagereportX", "btn_checkread"
         }
-        if state == 2:
-            with open("ui/readonly.qss", encoding="utf-8") as f:
-                self.setStyleSheet(f.read())
-            for child in self.findChildren(QtWidgets.QWidget):
-                if child.objectName() in show_whitelist:
-                    child.show()
-                elif child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI":
-                    child.hide()
-                child.setEnabled(child.objectName() in show_whitelist or child.objectName() in {
-                    "txt_year", "txt_month", "txt_day", "lotmain_3", "centralwidget", "txt_code",
-                    "spb_numberpagemedicine", "btn_pagemedicine", "grp_medicine", "lot_medicine", "che_read","btn_search",
-                    "btn_pagereport","btn_pagereport_2", "lbl_pagereport", "spb_numberpagereport", "lbl_pagereportX", "btn_checkread", "btn_logout"
-                })
+        # if state == 2:
+        with open("ui/readonly.qss", encoding="utf-8") as f:
+            self.setStyleSheet(f.read())
+        for child in self.findChildren(QtWidgets.QWidget):
+            if child.objectName() in show_whitelist:
+                child.show()
+            elif child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI":
+                child.hide()
+            child.setEnabled(child.objectName() in show_whitelist or child.objectName() in {
+                "txt_year", "txt_month", "txt_day", "lotmain_3", "centralwidget", "txt_code",
+                "spb_numberpagemedicine", "btn_pagemedicine", "grp_medicine", "lot_medicine", "che_read","btn_search",
+                "btn_pagereport","btn_pagereport_2", "lbl_pagereport", "spb_numberpagereport", "lbl_pagereportX", "btn_checkread", "btn_logout"
+            })
 
-        elif state == 0:
-            with open("ui/main.qss", encoding="utf-8") as f:
-                self.setStyleSheet(f.read())
-            for child in self.findChildren(QtWidgets.QWidget):
-                if child.objectName() in show_whitelist:
-                    child.hide()
-                elif child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI":
-                    child.show()
-                self.lbl_time.hide()
-                self.lbl_reporter.hide()
-                # Enable all widgets except those in show_whitelist (if you want to disable them, otherwise keep enabled)
-                child.setEnabled(child.objectName(
-                ) not in show_whitelist or child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI")
+        # elif state == 0:
+        #     with open("ui/main.qss", encoding="utf-8") as f:
+        #         self.setStyleSheet(f.read())
+        #     for child in self.findChildren(QtWidgets.QWidget):
+        #         if child.objectName() in show_whitelist:
+        #             child.hide()
+        #         elif child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI":
+        #             child.show()
+        #         self.lbl_time.hide()
+        #         self.lbl_reporter.hide()
+        #         # Enable all widgets except those in show_whitelist (if you want to disable them, otherwise keep enabled)
+        #         child.setEnabled(child.objectName(
+        #         ) not in show_whitelist or child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI")
 
     def checkread(self):
         global response
