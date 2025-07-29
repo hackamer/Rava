@@ -612,15 +612,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -677,15 +668,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -739,15 +721,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -1124,15 +1097,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -1189,15 +1153,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -1251,15 +1206,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>255</green>
                    <blue>255</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -1340,15 +1286,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -1405,15 +1342,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -1467,15 +1395,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>255</green>
                    <blue>255</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -1735,15 +1654,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -1800,15 +1710,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -1862,15 +1763,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -1968,15 +1860,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -2033,15 +1916,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -2095,15 +1969,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -2203,15 +2068,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -2268,15 +2124,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -2330,15 +2177,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -2446,15 +2284,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -2511,15 +2340,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -2573,15 +2393,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -2738,15 +2549,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -2803,15 +2605,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -2865,15 +2658,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -2957,15 +2741,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -3022,15 +2797,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -3084,15 +2850,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -3176,15 +2933,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -3241,15 +2989,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -3303,15 +3042,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -3395,15 +3125,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -3460,15 +3181,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -3522,15 +3234,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -3614,15 +3317,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -3679,15 +3373,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -3741,15 +3426,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -3994,15 +3670,6 @@ QTimeEdit::down-button {
                 </color>
                </brush>
               </colorrole>
-              <colorrole role="PlaceholderText">
-               <brush brushstyle="NoBrush">
-                <color alpha="128">
-                 <red>0</red>
-                 <green>0</green>
-                 <blue>139</blue>
-                </color>
-               </brush>
-              </colorrole>
              </active>
              <inactive>
               <colorrole role="WindowText">
@@ -4059,15 +3726,6 @@ QTimeEdit::down-button {
                 </color>
                </brush>
               </colorrole>
-              <colorrole role="PlaceholderText">
-               <brush brushstyle="NoBrush">
-                <color alpha="128">
-                 <red>0</red>
-                 <green>0</green>
-                 <blue>139</blue>
-                </color>
-               </brush>
-              </colorrole>
              </inactive>
              <disabled>
               <colorrole role="WindowText">
@@ -4121,15 +3779,6 @@ QTimeEdit::down-button {
                  <red>255</red>
                  <green>252</green>
                  <blue>198</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="PlaceholderText">
-               <brush brushstyle="NoBrush">
-                <color alpha="128">
-                 <red>0</red>
-                 <green>0</green>
-                 <blue>139</blue>
                 </color>
                </brush>
               </colorrole>
@@ -4255,15 +3904,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -4320,15 +3960,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -4382,15 +4013,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -4477,15 +4099,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -4542,15 +4155,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -4604,15 +4208,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -4693,15 +4288,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -4758,15 +4344,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -4820,15 +4397,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -4909,15 +4477,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -4974,15 +4533,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -5036,15 +4586,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -5334,7 +4875,7 @@ QPushButton:pressed{
      <x>0</x>
      <y>0</y>
      <width>905</width>
-     <height>23</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -5366,39 +4907,7 @@ focus {
      <string>خوش آمدید</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menu_4">
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="title">
-     <string>درباره ما</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_5">
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="title">
-     <string>پشتیبانی</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_6">
-    <property name="font">
-     <font>
-      <family>IRANYekanXFaNum</family>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="title">
-     <string>خروج</string>
-    </property>
-   </widget>
    <addaction name="menu_2"/>
-   <addaction name="menu_4"/>
-   <addaction name="menu_5"/>
-   <addaction name="menu_6"/>
   </widget>
   <action name="action">
    <property name="text">
