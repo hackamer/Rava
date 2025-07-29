@@ -1383,22 +1383,6 @@ QTimeEdit::down-button {
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
-       <widget class="QLineEdit" name="txt_code">
-        <property name="font">
-         <font>
-          <family>IRANYekanXFaNum</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>شماره پرونده بیمار</string>
-        </property>
-       </widget>
-      </item>
       <item row="5" column="0" colspan="8">
        <widget class="QPushButton" name="btn_save">
         <property name="font">
@@ -5739,19 +5723,6 @@ QTimeEdit::down-button {
         </property>
        </widget>
       </item>
-      <item row="0" column="6">
-       <widget class="QCheckBox" name="che_read">
-        <property name="font">
-         <font>
-          <family>IRANYekanXFaNum</family>
-          <kerning>false</kerning>
-         </font>
-        </property>
-        <property name="text">
-         <string>حالت مرور گزارشات</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0">
        <widget class="QPushButton" name="btn_checkread">
         <property name="font">
@@ -5812,6 +5783,22 @@ QPushButton:pressed{
         </property>
         <property name="flat">
          <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLineEdit" name="txt_code">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="placeholderText">
+         <string>شماره پرونده بیمار</string>
         </property>
        </widget>
       </item>

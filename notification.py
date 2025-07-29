@@ -1,7 +1,8 @@
-from PyQt5.QtWidgets import (QFrame, QLabel, QHBoxLayout)
+from PyQt5.QtWidgets import (QFrame, QLabel, QHBoxLayout, QApplication)
 from PyQt5.QtCore import (Qt, QPropertyAnimation, QTimer, 
                          QPoint, QEasingCurve, pyqtProperty)
 from PyQt5.QtGui import QColor
+import sys
 
 class Notification(QFrame):
     def __init__(self, parent=None, message="ثبت شد ✓"):
@@ -15,6 +16,9 @@ class Notification(QFrame):
         self.setMaximumWidth(600)  
         self.setMinimumHeight(80)
         self.setStyleSheet('''
+            font-family: calibri;
+            font-size: 18px;
+            font-weight: 700;
             background-color: rgba(76, 175, 80, 0.85);
             border-radius: 12px;
             padding: 20px;
@@ -27,12 +31,6 @@ class Notification(QFrame):
         self.setWindowOpacity(0.0)
 
         self.label = QLabel(self.message)
-        #self.label.setStyleSheet('''
-         #   color: white;
-          #  font-size: 17px;  
-           # font-weight: bold;
-            #margin: 5px;
-        #''')
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setWordWrap(False)  
         layout = QHBoxLayout(self)
@@ -46,7 +44,7 @@ class Notification(QFrame):
         QTimer.singleShot(2000, self.start_hide_animation)
 
     def start_show_animation(self):
-        parent_rect = self.parent().geometry()
+        parent_rect = self.parent().geometry() if self.parent() else self.screen().geometry()
         start_y = parent_rect.height() + 100
         end_y = parent_rect.height() // 2 - self.height() // 4
         x_pos = (parent_rect.width() - self.width()) // 2
@@ -91,8 +89,13 @@ class Notification(QFrame):
 
     opacity = pyqtProperty(float, get_opacity, set_opacity)
 
-def show_notification(parent, message="در حال پردازش"):
-    #تابع برای نمایش نوتیفیکیشن
+def show_notification(parent=None, message="در حال پردازش"):
     notification = Notification(parent, message)
     notification.show()
     return notification
+
+# تست ساده
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    show_notification(None, "تست نوتیفیکیشن")
+    sys.exit(app.exec_())

@@ -568,7 +568,7 @@ QTimeEdit::down-button {
        </widget>
       </item>
       <item row="0" column="8">
-       <widget class="QPushButton" name="btn_checkread">
+       <widget class="QPushButton" name="btn_sendsearch">
         <property name="font">
          <font>
           <family>IRANYekanXFaNum</family>
@@ -583,7 +583,7 @@ QTimeEdit::down-button {
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>بررسی</string>
+         <string>جستجو</string>
         </property>
         <property name="autoDefault">
          <bool>false</bool>

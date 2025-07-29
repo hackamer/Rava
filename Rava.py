@@ -19,6 +19,7 @@ from notification import show_notification # Import the function from notificati
 # -----------------------------
 drugs = []  # List to store medicine information for the current session
 response = []
+search_data = {}  # Global variable to store search data
 # Determine the folder path for storing config and data
 folderpath = os.path.join(os.path.join(
     os.environ['USERPROFILE']), 'AppData', 'Local', 'Rava')
@@ -227,10 +228,52 @@ def creator(table: str = "main"):
     encrypt_database(filepath)
     copy()
 
+# ------------------
+# Search Page Window
+#-------------------
+
+class SearchWindow(QtWidgets.QMainWindow):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        uic.loadUi('ui/gozaresh_search.ui', self)
+        self.setWindowTitle("جستجو و مرور گزارشات")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("images/ravalogo.png"))
+        self.setWindowIcon(icon)
+        self.widgets()
+        self.connectors()
+    
+    def widgets(self):
+        """
+        Finds and assigns all widgets from the UI to class attributes.
+        """
+        self.txt_code = self.findChild(QtWidgets.QLineEdit, "txt_code")
+        self.txt_day = self.findChild(QtWidgets.QLineEdit, "txt_day")
+        self.txt_month = self.findChild(QtWidgets.QLineEdit, "txt_month")
+        self.txt_year = self.findChild(QtWidgets.QLineEdit, "txt_year")
+        self.btn_sendsearch = self.findChild(QtWidgets.QPushButton, "btn_sendsearch")
+
+    def connectors(self):
+        self.btn_sendsearch.clicked.connect(self.send_search)
+
+    def send_search(self):
+        """
+        Stores search data in global variable, closes the search window, and triggers checkread in parent.
+        """
+        global search_data
+        search_data = {
+            "code": unidecode(self.txt_code.text()),
+            "day": unidecode(self.txt_day.text()),
+            "month": unidecode(self.txt_month.text()),
+            "year": unidecode(self.txt_year.text())
+        }
+        self.close()
+        if self.parent():
+            self.parent().checkread()
+
 # -----------------------------
 # Main Application Window Class
 # -----------------------------
-
 
 class Rava(QtWidgets.QMainWindow):
     def __init__(self):
@@ -356,14 +399,15 @@ class Rava(QtWidgets.QMainWindow):
         self.btn_save.clicked.connect(self.save)
         self.btn_savemedicine.clicked.connect(self.savemedicine)
         self.btn_calculateBMI.clicked.connect(self.calculateBMI)
-        #اینجا وقتی که قبلا چک باکسه بود وقتی کلیک میشد تابع رید مود اجرا میشد
-        #self.che_read.stateChanged.connect(self.readmode)
-        #اما الان که جاش این کد زیر میاد و وقتی که دکمه جستجو و مرور گزارشات کلیک میشه تابع رید مود را اجرا میکند اما وقتی تست میکنی میبینی که اجرا نمیشه رید مد با فشردن این دکمه و اروری هم نمیده
         self.btn_search.clicked.connect(self.readmode)
         #self.btn_checkread.clicked.connect(self.checkread)
         self.btn_pagereport.clicked.connect(self.read)
-        self.btn_pagereport.clicked.connect(self.read)
+        self.btn_pagereport_2.clicked.connect(self.read)
+        self.btn_search.clicked.connect(self.open_search_window)
 
+    def open_search_window(self):
+        search_window = SearchWindow(self)
+        search_window.show()
 
     def verify_get(self, time, date, drug):
         SUM = ("username" +
@@ -448,9 +492,9 @@ class Rava(QtWidgets.QMainWindow):
             connection.commit()
             encrypt_database(filepath)
             copy()
-            msg("اطلاعات با موفقیت ذخیره شد", "I")
+            show_notification(None,"اطلاعات با موفقیت ذخیره شد")
         except ValueError:
-            msg("لطفا شماره پرونده بیمار را به عدد وارد کنید", "W")
+            show_notification(None,"لطفا شماره پرونده بیمار را به عدد وارد کنید")
         # except:
         #     msg("خطای ورود داده", "W")
 
@@ -475,9 +519,9 @@ class Rava(QtWidgets.QMainWindow):
         }
         if name != '' and number != 0:
             drugs.append(newmed)
-            msg("داروی {} با موفقیت ذخیره شد".format(name), "I")
+            show_notification(None,"داروی {} با موفقیت ذخیره شد".format(name))
         else:
-            msg("نام دارو را وارد کنید یا عدد دارو را غیر صفر بنویسید", "W")
+            show_notification(None,"نام دارو را وارد کنید یا عدد دارو را غیر صفر بنویسید")
 
     def calculateBMI(self):
         """
@@ -488,16 +532,16 @@ class Rava(QtWidgets.QMainWindow):
             w = int(unidecode(self.txt_weight.text()))
             h = int(unidecode(self.txt_height.text())) / 100
             if w < 10 or w > 300:
-                msg("لطفا وزن را به کیلوگرم وارد کنید ", "W")
+                show_notification(None,"لطفا وزن را به کیلوگرم وارد کنید ")
             if h < 0.9 or h > 3:
-                msg("لطفا قد را به سانتی متر وارد کنید", "W")
+                show_notification(None,"لطفا قد را به سانتی متر وارد کنید",)
             else:
                 BMI = w / (h) ** 2
                 self.txt_bmi.setText(str(BMI))
         except:
-            msg("لطفا برای قد و وزن یک عدد انتخاب کنید", "W")
+            show_notification(None,"لطفا برای قد و وزن یک عدد انتخاب کنید")
 
-    def readmode(self, state):
+    def readmode(self, state=2):
         """
         Toggles read-only mode for the application using whitelist/blacklist style for all widgets.
         """
@@ -538,17 +582,17 @@ class Rava(QtWidgets.QMainWindow):
         #         ) not in show_whitelist or child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI")
 
     def checkread(self):
-        global response
-        code = unidecode(self.txt_code.text())
-        day = unidecode(self.txt_day.text())
-        month = unidecode(self.txt_month.text())
-        year = unidecode(self.txt_year.text())
+        global response, search_data
+        code = search_data.get("code", "")
+        day = search_data.get("day", "")
+        month = search_data.get("month", "")
+        year = search_data.get("year", "")
         if day != '' and month != '' and year != '':
             try:
                 if int(day) > 31 or int(day) < 1:
-                    msg("روز را به درستی وارد کنید", "W")
+                    show_notification(None,"روز را به درستی وارد کنید")
                 elif int(month) < 1 or int(month) > 12:
-                    msg("ماه را به درستی وارد کنید", "W")
+                    show_notification(None,"ماه را به درستی وارد کنید")
                 else:
                     if len(day) == 1:
                         day = "0"+day
@@ -560,7 +604,7 @@ class Rava(QtWidgets.QMainWindow):
                     decrypt_database(filepath)
                     cursor.execute(q, values)
             except ValueError:
-                msg("روز ماه و سال را به عدد وارد کنید", "W")
+                show_notification(None,"روز ماه و سال را به عدد وارد کنید")
         else:
             try:
                 intcode = int(code)
@@ -569,23 +613,23 @@ class Rava(QtWidgets.QMainWindow):
                 decrypt_database(filepath)
                 cursor.execute(q, values)
             except ValueError:
-                msg("لطفا شماره پرونده بیمار را به عدد وارد نمایید", "W")
+                show_notification(None,"لطفا شماره پرونده بیمار را به عدد وارد نمایید")
             except:
-                msg("متاسفانه اطلاعاتی موجود نمی باید", "C")
+                show_notification(None,"متاسفانه اطلاعاتی موجود نمی باید")
         connection.commit()
         response = cursor.fetchall()
         if len(response) == 0:
-            msg("متاسفانه گزارش پرستاری مورد نظر یافت نشد", "W")
-            self.spb_numberpagereport.setMaximum(0)
-            self.spb_numberpagereport.setMinimum(0)
+            show_notification(None,"متاسفانه گزارش پرستاری مورد نظر یافت نشد")
+            #self.spb_numberpagereport.setMaximum(0)
+            #self.spb_numberpagereport.setMinimum(0)
 
         else:
             n = str(len(response))
             self.lbl_pagereportX.setText("از {}".format(n))
-            self.spb_numberpagereport.setMaximum(len(response))
-            self.spb_numberpagereport.setMinimum(1)
-            self.spb_numberpagereport.setValue(len(response))
-            msg("به تعداد {} گزارش یافت شد".format(n), "I")
+            #self.spb_numberpagereport.setMaximum(len(response))
+            #self.spb_numberpagereport.setMinimum(1)
+            #self.spb_numberpagereport.setValue(len(response))
+            show_notification(None,"به تعداد {} گزارش یافت شد".format(n))
             self.read()
         encrypt_database(filepath)
 

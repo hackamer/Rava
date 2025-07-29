@@ -5163,7 +5163,7 @@ focus {
      <string notr="true"/>
     </property>
     <property name="title">
-     <string>ذخیره</string>
+     <string>خوش آمدید</string>
     </property>
    </widget>
    <widget class="QMenu" name="menu_4">
@@ -5195,16 +5195,7 @@ focus {
      <string>خروج</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menu_3">
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="title">
-     <string>خروجی گرفتن</string>
-    </property>
-   </widget>
    <addaction name="menu_2"/>
-   <addaction name="menu_3"/>
    <addaction name="menu_4"/>
    <addaction name="menu_5"/>
    <addaction name="menu_6"/>
