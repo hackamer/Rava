@@ -12,12 +12,15 @@ from unidecode import unidecode
 from cryptography.hazmat.primitives import hmac, hashes
 from cryptography.fernet import Fernet
 from notification import show_notification # Import the function from notification.py
+import json
+import ast
 
 
 # -----------------------------
 # Global Variables and Paths
 # -----------------------------
 drugs = []  # List to store medicine information for the current session
+medicine = []
 response = []
 search_data = {}  # Global variable to store search data
 # Determine the folder path for storing config and data
@@ -252,7 +255,6 @@ class SearchWindow(QtWidgets.QMainWindow):
         self.txt_month = self.findChild(QtWidgets.QLineEdit, "txt_month")
         self.txt_year = self.findChild(QtWidgets.QLineEdit, "txt_year")
         self.btn_sendsearch = self.findChild(QtWidgets.QPushButton, "btn_sendsearch")
-
     def connectors(self):
         self.btn_sendsearch.clicked.connect(self.send_search)
 
@@ -267,9 +269,9 @@ class SearchWindow(QtWidgets.QMainWindow):
             "month": unidecode(self.txt_month.text()),
             "year": unidecode(self.txt_year.text())
         }
-        self.close()
-        if self.parent():
-            self.parent().checkread()
+        parent = self.parent()
+        if isinstance(parent, Rava):
+            parent.checkread()
 
 # -----------------------------
 # Main Application Window Class
@@ -289,19 +291,15 @@ class Rava(QtWidgets.QMainWindow):
         self.setWindowIcon(icon)
         self.widgets()
         self.connectors()
-        #self.txt_day.hide()
-        #self.txt_month.hide()
-        #self.txt_year.hide()
         self.lbl_pagemedicineX.hide()
         self.lbl_pagemedicine.hide()
         self.spb_numberpagemedicine.hide()
         self.btn_pagemedicine.hide()
         self.btn_pagereport.hide()
-        self.btn_pagereport_2.hide()
         self.lbl_pagereport.hide()
-        #self.spb_numberpagereport.hide()
+        self.spb_numberpagereport.hide()
         self.lbl_pagereportX.hide()
-        #self.btn_checkread.hide()
+        self.btn_back.hide()
         self.lbl_time.hide()
         self.lbl_reporter.hide()
 
@@ -309,6 +307,8 @@ class Rava(QtWidgets.QMainWindow):
         """
         Finds and assigns all widgets from the UI to class attributes.
         """
+        self.button = QtWidgets.QPushButton("hi there")
+        self.button.hide()
         self.lbl_welcome = self.findChild(QtWidgets.QLabel, 'lbl_welcome')
         self.lbl_pagemedicine = self.findChild(
             QtWidgets.QLabel, "lbl_pagemedicine")
@@ -374,24 +374,20 @@ class Rava(QtWidgets.QMainWindow):
         self.che_eyecontact = self.findChild(
             QtWidgets.QCheckBox, 'che_eyecontact')
         self.che_pain = self.findChild(QtWidgets.QCheckBox, 'che_pain')
-        #self.che_read = self.findChild(QtWidgets.QCheckBox, 'che_read')
 
         self.btn_savemedicine = self.findChild(
             QtWidgets.QPushButton, 'btn_savemedicine')
         self.btn_save = self.findChild(QtWidgets.QPushButton, 'btn_save')
         self.btn_calculateBMI = self.findChild(
             QtWidgets.QPushButton, 'btn_calculateBMI')
-        #self.btn_logout = self.findChild(QtWidgets.QPushButton, 'btn_logout')
         self.btn_pagemedicine = self.findChild(
             QtWidgets.QPushButton, 'btn_pagemedicine')
         self.btn_pagereport = self.findChild(
             QtWidgets.QPushButton, 'btn_pagereport')
-        self.btn_pagereport_2 = self.findChild(
-            QtWidgets.QPushButton, 'btn_pagereport_2')
         self.btn_checkread = self.findChild(
             QtWidgets.QPushButton, 'btn_checkread')
         self.btn_search = self.findChild(QtWidgets.QPushButton, 'btn_search')
-
+        self.btn_back = self.findChild(QtWidgets.QPushButton,'btn_back')
     def connectors(self):
         """
         Connects button signals to their respective slot methods.
@@ -400,18 +396,17 @@ class Rava(QtWidgets.QMainWindow):
         self.btn_savemedicine.clicked.connect(self.savemedicine)
         self.btn_calculateBMI.clicked.connect(self.calculateBMI)
         self.btn_search.clicked.connect(self.readmode)
-        #self.btn_checkread.clicked.connect(self.checkread)
+        self.btn_back.clicked.connect(self.back)
         self.btn_pagereport.clicked.connect(self.read)
-        self.btn_pagereport_2.clicked.connect(self.read)
         self.btn_search.clicked.connect(self.open_search_window)
-
+        self.btn_pagemedicine.clicked.connect(self.readdrug)
     def open_search_window(self):
         search_window = SearchWindow(self)
         search_window.show()
 
-    def verify_get(self, time, date, drug):
+    def verify_get(self, time, date, drug,code):
         SUM = ("username" +
-               str(unidecode(self.txt_code.text())) +
+               unidecode(code) +
                str(time) +
                str(date) +
                self.cbx_mood.currentText() +
@@ -454,56 +449,58 @@ class Rava(QtWidgets.QMainWindow):
             speedspeech, contentspeech, tonespeech, affection, eyecontact, medicine, pain, bp, p, r, spo2, t,
             weight, height, bmi, eat, diet, moredetails, verify
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
-        try:
-            values = (
-                "username",
-                str(unidecode(self.txt_code.text())),
-                get_shamsi_time_str(),
-                get_shamsi_date_str(),
-                self.cbx_mood.currentText(),
-                self.cbx_Illusion.currentText(),
-                self.txt_delusion.text(),
-                self.cbx_suicidalthoughts.currentText(),
-                self.cbx_psychomotor.currentText(),
-                self.che_Illusion.isChecked(),
-                self.cbx_ratespeech.currentText(),
-                self.cbx_speedspeech.currentText(),
-                self.cbx_contentspeech.currentText(),
-                self.cbx_tonespeech.currentText(),
-                self.cbx_affection.currentText(),
-                self.che_eyecontact.isChecked(),
-                str(drugs),
-                self.che_pain.isChecked(),
-                self.txt_bp.text(),
-                self.txt_p.text(),
-                self.txt_r.text(),
-                self.txt_spo2.text(),
-                self.txt_t.text(),
-                self.txt_weight.text(),
-                self.txt_height.text(),
-                self.txt_bmi.text(),
-                self.cbx_eat.currentText(),
-                self.txt_diet.text(),
-                self.txt_moredetails.toPlainText(),
-                self.verify_get(get_shamsi_time_str(),
-                                get_shamsi_date_str(), drugs)
-            )
-            cursor.execute(q, values)
-            connection.commit()
-            encrypt_database(filepath)
-            copy()
-            show_notification(None,"اطلاعات با موفقیت ذخیره شد")
-        except ValueError:
-            show_notification(None,"لطفا شماره پرونده بیمار را به عدد وارد کنید")
-        # except:
-        #     msg("خطای ورود داده", "W")
+        if self.txt_code.text()=='':
+            show_notification(None,"لطفا در لطفا شماره پرونده بیمار را وارد کنید!")
+        else:
+            try:
+                values = (
+                    "username",
+                    str(unidecode(self.txt_code.text())),
+                    get_shamsi_time_str(),
+                    get_shamsi_date_str(),
+                    self.cbx_mood.currentText(),
+                    self.cbx_Illusion.currentText(),
+                    self.txt_delusion.text(),
+                    self.cbx_suicidalthoughts.currentText(),
+                    self.cbx_psychomotor.currentText(),
+                    self.che_Illusion.isChecked(),
+                    self.cbx_ratespeech.currentText(),
+                    self.cbx_speedspeech.currentText(),
+                    self.cbx_contentspeech.currentText(),
+                    self.cbx_tonespeech.currentText(),
+                    self.cbx_affection.currentText(),
+                    self.che_eyecontact.isChecked(),
+                    str(drugs),
+                    self.che_pain.isChecked(),
+                    self.txt_bp.text(),
+                    self.txt_p.text(),
+                    self.txt_r.text(),
+                    self.txt_spo2.text(),
+                    self.txt_t.text(),
+                    self.txt_weight.text(),
+                    self.txt_height.text(),
+                    self.txt_bmi.text(),
+                    self.cbx_eat.currentText(),
+                    self.txt_diet.text(),
+                    self.txt_moredetails.toPlainText(),
+                    self.verify_get(get_shamsi_time_str(),
+                                    get_shamsi_date_str(), drugs,self.txt_code.text())
+                )
+                cursor.execute(q, values)
+                connection.commit()
+                encrypt_database(filepath)
+                copy()
+                show_notification(None,"اطلاعات با موفقیت ذخیره شد")
+            except ValueError:
+                show_notification(None,"لطفا شماره پرونده بیمار را به عدد وارد کنید")
+            except:
+                show_notification(None,"خطای ورود داده")
 
     def savemedicine(self):
         """
         Saves the current medicine entry to the drugs list and shows a confirmation message.
         """
         global drugs
-        print('medicine saved!')
         name = self.txt_medicinename.text()
         number = self.spb_numbermedicine.value()
         mass = self.spb_massmedicine.value()
@@ -550,8 +547,8 @@ class Rava(QtWidgets.QMainWindow):
         show_whitelist = {
             "txt_day", "txt_month", "txt_year",
             "btn_pagemedicine", "lbl_pagemedicine", "lbl_pagemedicineX",
-            "spb_numberpagemedicine", "btn_pagereport","btn_pagereport_2", "lbl_pagereport",
-            "spb_numberpagereport", "lbl_pagereportX", "btn_checkread"
+            "spb_numberpagemedicine", "btn_pagereport", "lbl_pagereport",
+            "spb_numberpagereport", "lbl_pagereportX", "btn_checkread","btn_back"
         }
         # if state == 2:
         with open("ui/readonly.qss", encoding="utf-8") as f:
@@ -562,25 +559,30 @@ class Rava(QtWidgets.QMainWindow):
             elif child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI":
                 child.hide()
             child.setEnabled(child.objectName() in show_whitelist or child.objectName() in {
-                "txt_year", "txt_month", "txt_day", "lotmain_3", "centralwidget", "txt_code",
+                "txt_year", "txt_month", "txt_day", "lotmain_3", "centralwidget",
                 "spb_numberpagemedicine", "btn_pagemedicine", "grp_medicine", "lot_medicine", "che_read","btn_search",
-                "btn_pagereport","btn_pagereport_2", "lbl_pagereport", "spb_numberpagereport", "lbl_pagereportX", "btn_checkread", "btn_logout"
+                "btn_pagereport", "lbl_pagereport", "spb_numberpagereport", "lbl_pagereportX", "btn_checkread"
             })
 
-        # elif state == 0:
-        #     with open("ui/main.qss", encoding="utf-8") as f:
-        #         self.setStyleSheet(f.read())
-        #     for child in self.findChildren(QtWidgets.QWidget):
-        #         if child.objectName() in show_whitelist:
-        #             child.hide()
-        #         elif child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI":
-        #             child.show()
-        #         self.lbl_time.hide()
-        #         self.lbl_reporter.hide()
-        #         # Enable all widgets except those in show_whitelist (if you want to disable them, otherwise keep enabled)
-        #         child.setEnabled(child.objectName(
-        #         ) not in show_whitelist or child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI")
-
+    def back(self):
+        show_whitelist = {
+            "txt_day", "txt_month", "txt_year",
+            "btn_pagemedicine", "lbl_pagemedicine", "lbl_pagemedicineX",
+            "spb_numberpagemedicine", "btn_pagereport", "lbl_pagereport",
+            "spb_numberpagereport", "lbl_pagereportX", "btn_checkread"
+        }
+        with open("ui/main.qss", encoding="utf-8") as f:
+            self.setStyleSheet(f.read())
+        for child in self.findChildren(QtWidgets.QWidget):
+            if child.objectName() in show_whitelist:
+                child.hide()
+            elif child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI" or child.objectName()=="btn_back":
+                child.show()
+            self.lbl_time.hide()
+            self.lbl_reporter.hide()
+            # Enable all widgets except those in show_whitelist (if you want to disable them, otherwise keep enabled)
+            child.setEnabled(child.objectName(
+            ) not in show_whitelist or child.objectName() == "btn_savemedicine" or child.objectName() == "btn_calculateBMI" or child.objectName() =="btn_back")
     def checkread(self):
         global response, search_data
         code = search_data.get("code", "")
@@ -619,26 +621,28 @@ class Rava(QtWidgets.QMainWindow):
         connection.commit()
         response = cursor.fetchall()
         if len(response) == 0:
+            self.spb_numberpagereport.setMaximum(0)
+            self.spb_numberpagereport.setMinimum(0)
             show_notification(None,"متاسفانه گزارش پرستاری مورد نظر یافت نشد")
-            #self.spb_numberpagereport.setMaximum(0)
-            #self.spb_numberpagereport.setMinimum(0)
 
         else:
             n = str(len(response))
             self.lbl_pagereportX.setText("از {}".format(n))
-            #self.spb_numberpagereport.setMaximum(len(response))
-            #self.spb_numberpagereport.setMinimum(1)
-            #self.spb_numberpagereport.setValue(len(response))
+            self.spb_numberpagereport.setMaximum(len(response))
+            self.spb_numberpagereport.setMinimum(1)
+            self.spb_numberpagereport.setValue(len(response))
             show_notification(None,"به تعداد {} گزارش یافت شد".format(n))
             self.read()
         encrypt_database(filepath)
 
     def read(self):
+        global medicine
         page = self.spb_numberpagereport.value()
         self.lbl_time.show()
         self.lbl_reporter.show()
         try:
             self.lbl_reporter.setText("نویسنده:{}".format(response[page-1][0]))
+            self.txt_code.setText(response[page-1][1])
             self.lbl_time.setText("در تاریخ{}".format(
                 response[page-1][2]+"  "+response[page-1][3]))
             self.cbx_mood.setCurrentText(response[page-1][4])
@@ -652,10 +656,20 @@ class Rava(QtWidgets.QMainWindow):
             self.cbx_contentspeech.setCurrentText(response[page-1][12])
             self.cbx_tonespeech.setCurrentText(response[page-1][13])
             self.cbx_affection.setCurrentText(response[page-1][14])
-            print(response[page-1][15])
             self.che_eyecontact.setChecked(response[page-1][15])
-            drug = response[page-1][16]
-            print(drug)
+            medicine_raw = response[page-1][16]
+            medicine = ast.literal_eval(medicine_raw)
+            print(medicine,print(type(medicine)))
+
+            print(medicine,type(medicine))
+            self.lbl_pagemedicineX.setText("از {}".format(len(medicine)))
+            self.spb_numberpagemedicine.setMaximum(len(medicine))
+            if len(medicine) == 0:
+                self.spb_numberpagemedicine.setMinimum(len(medicine))
+                self.spb_numberpagemedicine.setValue(0)
+            else:
+                self.spb_numberpagemedicine.setValue(1)
+                self.readdrug()
             self.che_pain.setChecked(response[page-1][17])
             self.txt_bp.setText(response[page-1][18])
             self.txt_p.setText(response[page-1][19])
@@ -668,14 +682,28 @@ class Rava(QtWidgets.QMainWindow):
             self.cbx_eat.setCurrentText(response[page-1][26])
             self.txt_diet.setText(response[page-1][27])
             self.txt_moredetails.setText(response[page-1][28])
-            if self.verify_get(response[page-1][2], response[page-1][3], drug) == response[page-1][29]:
+            if self.verify_get(response[page-1][2], response[page-1][3], medicine,search_data.get("code")) == response[page-1][29]:
                 pass
             else:
                 msg("اخطار جدی این گزارش اعتبار ندارد و تغییر کرده", "C")
 
         except ValueError:
-            print('pass')
+            pass
+        except:show_notification(None,"متاسفانه گزارشی یافت نشد")
 
+    def readdrug(self):
+        n = len(medicine)
+        if n== 0:
+            show_notification(None,"دارویی وجود ندارد")
+        else:
+            l = self.spb_numberpagemedicine.value()
+            show_notification(None,f"به تعداد{str(n)} دارو وجود دارد")
+            self.txt_medicinename.setText(medicine[l-1].get("name"))
+            self.spb_numbermedicine.setValue(medicine[l-1].get("number"))
+            self.spb_massmedicine.setValue(medicine[l-1].get("mass"))
+            self.cbb_type.setCurrentText(medicine[l-1].get("type"))
+            time_str = medicine[l-1].get("time")
+            self.time_medicinetime.setTime(QtCore.QTime.fromString(time_str, "hh:mm")) 
 
 # -----------------------------
 # Application Entry Point

@@ -1,12 +1,14 @@
 from PyQt5.QtWidgets import (QFrame, QLabel, QHBoxLayout, QApplication)
 from PyQt5.QtCore import (Qt, QPropertyAnimation, QTimer, 
                          QPoint, QEasingCurve, pyqtProperty)
-from PyQt5.QtGui import QColor
+from PyQt5 import QtGui
 import sys
 
 class Notification(QFrame):
     def __init__(self, parent=None, message="ثبت شد ✓"):
         super().__init__(parent)
+        self.fontebold = QtGui.QFontDatabase.addApplicationFont(
+            "ui/fonts/IRANYekanXFaNum_ExtraBold.ttf")
         self._is_hiding = False
         self.message = message
         self.setup_ui()
@@ -16,9 +18,8 @@ class Notification(QFrame):
         self.setMaximumWidth(600)  
         self.setMinimumHeight(80)
         self.setStyleSheet('''
-            font-family: calibri;
+            font-family: IRANYekanXFaNum ExtraBold;
             font-size: 18px;
-            font-weight: 700;
             background-color: rgba(76, 175, 80, 0.85);
             border-radius: 12px;
             padding: 20px;

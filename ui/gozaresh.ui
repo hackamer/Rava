@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>955</width>
-    <height>711</height>
+    <width>821</width>
+    <height>615</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>IRANYekanXFaNum</family>
+   </font>
   </property>
   <property name="windowTitle">
    <string>گزارش پرستاری راوا</string>
@@ -333,8 +338,24 @@ QTimeEdit::down-button {
         </property>
        </widget>
       </item>
-      <item row="0" column="6">
-       <widget class="QPushButton" name="btn_pagereport">
+      <item row="0" column="3">
+       <widget class="QLabel" name="lbl_pagereportX">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>از X</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2" colspan="6">
+       <widget class="QPushButton" name="btn_save">
         <property name="font">
          <font>
           <family>IRANYekanXFaNum</family>
@@ -346,13 +367,7 @@ QTimeEdit::down-button {
          </font>
         </property>
         <property name="text">
-         <string>قبلی &gt;</string>
-        </property>
-        <property name="autoDefault">
-         <bool>false</bool>
-        </property>
-        <property name="flat">
-         <bool>false</bool>
+         <string>ثبت گزارش</string>
         </property>
        </widget>
       </item>
@@ -372,8 +387,8 @@ QTimeEdit::down-button {
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
-       <widget class="QPushButton" name="btn_pagereport_2">
+      <item row="0" column="6">
+       <widget class="QPushButton" name="btn_pagereport">
         <property name="font">
          <font>
           <family>IRANYekanXFaNum</family>
@@ -385,7 +400,7 @@ QTimeEdit::down-button {
          </font>
         </property>
         <property name="text">
-         <string>&lt; بعدی</string>
+         <string>برو به</string>
         </property>
         <property name="autoDefault">
          <bool>false</bool>
@@ -395,40 +410,7 @@ QTimeEdit::down-button {
         </property>
        </widget>
       </item>
-      <item row="0" column="4">
-       <widget class="QLabel" name="lbl_pagereportX">
-        <property name="font">
-         <font>
-          <family>IRANYekanXFaNum</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>از X</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="2" colspan="6">
-       <widget class="QPushButton" name="btn_save">
-        <property name="font">
-         <font>
-          <family>IRANYekanXFaNum</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-          <kerning>false</kerning>
-         </font>
-        </property>
-        <property name="text">
-         <string>ثبت گزارش</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="7">
+      <item row="2" column="7">
        <widget class="QGroupBox" name="grp_moredetails">
         <property name="font">
          <font>
@@ -515,15 +497,6 @@ QTimeEdit::down-button {
                 </color>
                </brush>
               </colorrole>
-              <colorrole role="PlaceholderText">
-               <brush brushstyle="NoBrush">
-                <color alpha="128">
-                 <red>0</red>
-                 <green>0</green>
-                 <blue>139</blue>
-                </color>
-               </brush>
-              </colorrole>
              </active>
              <inactive>
               <colorrole role="WindowText">
@@ -577,15 +550,6 @@ QTimeEdit::down-button {
                  <red>255</red>
                  <green>252</green>
                  <blue>198</blue>
-                </color>
-               </brush>
-              </colorrole>
-              <colorrole role="PlaceholderText">
-               <brush brushstyle="NoBrush">
-                <color alpha="128">
-                 <red>0</red>
-                 <green>0</green>
-                 <blue>139</blue>
                 </color>
                </brush>
               </colorrole>
@@ -645,15 +609,6 @@ QTimeEdit::down-button {
                 </color>
                </brush>
               </colorrole>
-              <colorrole role="PlaceholderText">
-               <brush brushstyle="NoBrush">
-                <color alpha="128">
-                 <red>0</red>
-                 <green>0</green>
-                 <blue>139</blue>
-                </color>
-               </brush>
-              </colorrole>
              </disabled>
             </palette>
            </property>
@@ -672,7 +627,7 @@ QTimeEdit::down-button {
         </layout>
        </widget>
       </item>
-      <item row="2" column="2" colspan="6">
+      <item row="1" column="2" colspan="6">
        <widget class="QGroupBox" name="grp_stateofmind">
         <property name="font">
          <font>
@@ -945,15 +900,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -1010,15 +956,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -1072,15 +1009,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -1457,15 +1385,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -1522,15 +1441,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -1584,15 +1494,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>255</green>
                    <blue>255</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -1673,15 +1574,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -1738,15 +1630,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -1800,15 +1683,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>255</green>
                    <blue>255</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>39</red>
-                   <green>39</green>
-                   <blue>39</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -1907,7 +1781,7 @@ QTimeEdit::down-button {
         </layout>
        </widget>
       </item>
-      <item row="3" column="2" colspan="5">
+      <item row="2" column="2" colspan="5">
        <widget class="QGroupBox" name="grp_vitalsings">
         <property name="font">
          <font>
@@ -1989,15 +1863,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -2054,15 +1919,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -2116,15 +1972,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -2208,15 +2055,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -2273,15 +2111,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -2335,15 +2164,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -2427,15 +2247,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -2492,15 +2303,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -2554,15 +2356,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -2646,15 +2439,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -2711,15 +2495,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -2773,15 +2548,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -2882,15 +2648,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -2944,15 +2701,6 @@ QTimeEdit::down-button {
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -3012,15 +2760,6 @@ QTimeEdit::down-button {
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -3047,8 +2786,8 @@ QTimeEdit::down-button {
         </layout>
        </widget>
       </item>
-      <item row="4" column="0" colspan="2">
-       <widget class="QPushButton" name="btn_search">
+      <item row="0" column="2">
+       <widget class="QLineEdit" name="txt_code">
         <property name="font">
          <font>
           <family>IRANYekanXFaNum</family>
@@ -3056,45 +2795,14 @@ QTimeEdit::down-button {
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
-          <kerning>false</kerning>
          </font>
         </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-  background-color: ;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 8px;
-  border: 1px solid rgb(255, 179, 0);
-  padding: 5px 15px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  outline: 0px;
-  font: 10pt ;
-}
-
-QPushButton:hover{
-  background-color: rgb(236, 118, 0);
-}
-
-QPushButton:pressed{
-  background-color: rgb(255, 227, 82);
-  border-color:;
-  font-weight: 600;
-  border-radius: 8px;
-  border: 3px solid rgb(255, 170, 0);
-  padding: 5px 15px;
-  margin-top: 0px;
-  outline: 0px;
-  color: rgb(255, 170, 0);
-}</string>
-        </property>
-        <property name="text">
-         <string>جستجو و مرور گزارشات</string>
+        <property name="placeholderText">
+         <string>شماره پرونده بیمار</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0" colspan="2">
+      <item row="2" column="0" colspan="2">
        <widget class="QGroupBox" name="grp_nutrition">
         <property name="font">
          <font>
@@ -3173,15 +2881,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -3238,15 +2937,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -3300,15 +2990,6 @@ QPushButton:pressed{
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -3389,15 +3070,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -3454,15 +3126,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -3516,15 +3179,6 @@ QPushButton:pressed{
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -3605,15 +3259,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -3670,15 +3315,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -3732,15 +3368,6 @@ QPushButton:pressed{
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -3864,15 +3491,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -3926,15 +3544,6 @@ QPushButton:pressed{
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -3994,15 +3603,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -4042,8 +3642,8 @@ QPushButton:pressed{
         </layout>
        </widget>
       </item>
-      <item row="0" column="2">
-       <widget class="QLineEdit" name="txt_code">
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="lbl_time">
         <property name="font">
          <font>
           <family>IRANYekanXFaNum</family>
@@ -4053,12 +3653,12 @@ QPushButton:pressed{
           <bold>false</bold>
          </font>
         </property>
-        <property name="placeholderText">
-         <string>شماره پرونده بیمار</string>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" colspan="2">
+      <item row="1" column="0" colspan="2">
        <widget class="QGroupBox" name="grp_medicine">
         <property name="font">
          <font>
@@ -4187,15 +3787,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -4252,15 +3843,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -4314,15 +3896,6 @@ QPushButton:pressed{
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -4420,15 +3993,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -4485,15 +4049,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </inactive>
                <disabled>
                 <colorrole role="WindowText">
@@ -4547,15 +4102,6 @@ QPushButton:pressed{
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -4655,15 +4201,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -4717,15 +4254,6 @@ QPushButton:pressed{
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -4785,15 +4313,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -4824,7 +4343,7 @@ QPushButton:pressed{
             </widget>
            </item>
            <item row="6" column="0">
-            <widget class="QLabel" name="lbl_pagemedicine">
+            <widget class="QLabel" name="lbl_pagemedicineX">
              <property name="font">
               <font>
                <family>IRANYekanXFaNum</family>
@@ -4898,15 +4417,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </active>
                <inactive>
                 <colorrole role="WindowText">
@@ -4960,15 +4470,6 @@ QPushButton:pressed{
                    <red>255</red>
                    <green>252</green>
                    <blue>198</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -5028,15 +4529,6 @@ QPushButton:pressed{
                   </color>
                  </brush>
                 </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="NoBrush">
-                  <color alpha="128">
-                   <red>0</red>
-                   <green>0</green>
-                   <blue>139</blue>
-                  </color>
-                 </brush>
-                </colorrole>
                </disabled>
               </palette>
              </property>
@@ -5079,7 +4571,7 @@ QPushButton:pressed{
             </widget>
            </item>
            <item row="6" column="2">
-            <widget class="QLabel" name="lbl_pagemedicineX">
+            <widget class="QLabel" name="lbl_pagemedicine">
              <property name="font">
               <font>
                <family>IRANYekanXFaNum</family>
@@ -5108,8 +4600,17 @@ QPushButton:pressed{
         </layout>
        </widget>
       </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="lbl_time">
+      <item row="0" column="4">
+       <widget class="QSpinBox" name="spb_numberpagereport">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="btn_search">
         <property name="font">
          <font>
           <family>IRANYekanXFaNum</family>
@@ -5117,10 +4618,88 @@ QPushButton:pressed{
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
+          <kerning>false</kerning>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  background-color: ;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid rgb(255, 179, 0);
+  padding: 5px 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  outline: 0px;
+  font: 10pt ;
+}
+
+QPushButton:hover{
+  background-color: rgb(236, 118, 0);
+}
+
+QPushButton:pressed{
+  background-color: rgb(255, 227, 82);
+  border-color:;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 3px solid rgb(255, 170, 0);
+  padding: 5px 15px;
+  margin-top: 0px;
+  outline: 0px;
+  color: rgb(255, 170, 0);
+}</string>
+        </property>
         <property name="text">
-         <string/>
+         <string>جستجو و مرور گزارشات</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="btn_back">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  background-color: ;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid rgb(255, 179, 0);
+  padding: 5px 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  outline: 0px;
+  font: 10pt ;
+}
+
+QPushButton:hover{
+  background-color: rgb(236, 118, 0);
+}
+
+QPushButton:pressed{
+  background-color: rgb(255, 227, 82);
+  border-color:;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 3px solid rgb(255, 170, 0);
+  padding: 5px 15px;
+  margin-top: 0px;
+  outline: 0px;
+  color: rgb(255, 170, 0);
+}</string>
+        </property>
+        <property name="text">
+         <string>بازگشت به حالت ثبت گزارش</string>
         </property>
        </widget>
       </item>
@@ -5133,8 +4712,8 @@ QPushButton:pressed{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>955</width>
-     <height>23</height>
+     <width>821</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
