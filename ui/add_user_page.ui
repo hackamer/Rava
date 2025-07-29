@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SignUp</class>
+ <widget class="QMainWindow" name="SignUp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>250</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>250</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>250</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>ثبت کاربر جدید</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+background-color:qlineargradient(spread:pad, x1:0.528, y1:0, x2:0.518, y2:1, stop:0.572139 rgba(255, 229, 145, 255), stop:1 rgba(255, 198, 183, 255));
+}
+
+QWidget {
+  background-color:;
+  font-family: IRANYekanXFaNum;
+  color:darkblue;
+  
+}
+QLabel {
+ font-family:IRANYekanXFaNum ExtraBold;
+  color: rgb(0, 9, 105);
+  font-weight: 600;
+  font: 12pt ;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+QLabel#heading {
+  color: #0f1925;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+QLabel#subheading {
+  color: #0f1925;
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+QTabWidget {
+    color:rgb(0,0,0);
+    background-color:#000000;
+}
+QTabWidget::pane {
+    border-color: #050a0e;
+    background-color: #e0e0e0;
+    border-width: 1px;
+    border-radius: 4px;
+    position: absolute;
+    top: -0.5em;
+    padding-top: 0.5em;
+}
+
+QTabWidget::tab-bar {
+    alignment: center;
+}
+
+QTabBar::tab {
+    border-bottom: 1px solid #c0c0c0;
+    padding: 3px;
+    color: #272727;
+    background-color: #fefefc;
+    margin-left:0px;
+}
+QTabBar::tab:!last {
+    border-right: 1px solid;
+    border-right-color: #c0c0c0;
+    border-bottom-color: #c0c0c0;
+}
+QTabBar::tab:first {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+QTabBar::tab:last {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+QTabBar::tab:selected, QTabBar::tab:last:selected, QTabBar::tab:hover {
+    color: #FFFFFF;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #84afe5, stop:1 #1168e4);
+}
+QLineEdit {
+  border-radius: 8px;
+  border: 1px solid #e0e4e7;
+  padding: 5px 15px;
+  background-color: rgb(255, 252, 198);
+  font: 10pt ;
+}
+
+QLineEdit:focus {
+  border: 1px solid rgb(255, 179, 0);
+}
+
+QTextEdit::placeholder {
+  color: #fff;
+}
+QTextEdit {
+  border-radius: 8px;
+  border: 1px solid #e0e4e7;
+  padding: 5px 15px;
+  background-color: rgb(255, 252, 198);
+  font: 12pt ;
+}
+
+QTextEdit:focus {
+  border: 1px solid #d0e3ff;
+}
+
+QTextEdit::placeholder {
+  color: #fff;
+}
+QSpinBox {
+  border-radius: 8px;
+  border: 1px solid #e0e4e7;
+  padding: 5px 15px;
+  background-color: rgb(255, 252, 198)
+}
+
+QSpinBox:focus {
+  border: 1px solid #d0e3ff;
+}
+
+QTimeEdit {
+  border-radius: 8px;
+  border: 1px solid #e0e4e7;
+  padding: 5px 15px;
+  background-color: rgb(255, 252, 198)
+}
+
+QTimeEdit:focus {
+  border: 1px solid #d0e3ff;
+}
+
+
+QComboBox{
+  background-color: rgb(255, 252, 198);
+}
+ QGroupBox{
+  font: 10pt ;
+}
+
+QComboBox {
+   border-radius: 8px;
+   border: 1px solid #e0e4e7;
+   padding: 2px 10px;
+   background-color: rgb(255, 252, 198);
+   min-width: 6em;
+   color: rgb(0, 9, 105);
+   font: 10pt ;
+   margin-top: 1.5px;
+   margin-bottom: 1.5px;
+
+}
+QComboBox::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 36px;
+	
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+QComboBox::drop-down:button{
+	background-color:rgb(255, 252, 198) ;
+	width: 25px;
+}
+
+QComboBox::down-arrow {
+    image: url(/root/Documents/python/icon2.png);
+    width: 15px;
+    height: 13px;
+	padding: 1px;
+}
+
+QComboBox::down-arrow:disabled {
+	background-color: #CCC;
+}
+
+ QCheckBox{
+    color: #272727;
+}
+QCheckBox {
+    padding: 2px;
+}
+QCheckBox:disabled, QRadioButton:disabled {
+    color: #808086;
+    padding: 2px;
+}
+
+QCheckBox:hover {
+    border-radius:4px;
+    border-style:solid;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    border-width:1px;
+    border-color: transparent;
+}
+QCheckBox::indicator:checked {
+    image: url(./QSS_IMG/object-select-symbolic.symbolic.png);
+    height: 15px;
+    width: 15px;
+    border-style:solid;
+    border-width: 1px;
+    border-color: #48a5fd;
+    color: #ffffff;
+    border-radius: 3px;
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #48a5fd, stop:0.5 #329cfb, stop:1 #48a5fd);
+}
+QCheckBox::indicator:unchecked {
+    
+    height: 15px;
+    width: 15px;
+    border-style:solid;
+    border-width: 1px;
+    border-color: #48a5fd;
+    border-radius: 3px;
+    background-color: #fbfdfa;
+}
+QPushButton {
+  background-color: rgb(255, 179, 0);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid rgb(255, 179, 0);
+  padding: 5px 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  outline: 0px;
+  font: 10pt ;
+}
+
+QPushButton:hover{
+  background-color: rgb(236, 118, 0);
+}
+
+QPushButton:pressed{
+  background-color: rgb(255, 227, 82);
+  border-color:;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 3px solid rgb(255, 170, 0);
+  padding: 5px 15px;
+  margin-top: 0px;
+  outline: 0px;
+  color: rgb(255, 170, 0);
+}
+
+QMenu:hover{
+  background-color: #0b5ed7;
+  border: 3px solid #9ac3fe;
+}
+
+QMenu:pressed{
+  background-color: rgb(255, 255, 205);
+  border-color:white;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 3px solid rgb(53, 132, 228);
+  padding: 5px 15px;
+  margin-top: 0px;
+  outline: 0px;
+  color:rgb(0, 63, 184);
+}
+
+QLineEdit:focus, QTextEdit:focus, QPlainTextEdit:focus, QSpinBox:focus, QDoubleSpinBox:focus, QTimeEdit:focus, QDateEdit:focus, QDateTimeEdit:focus {
+    border-width: 2px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color:rgb(255, 179, 0);
+    background-color: rgb(255, 255, 231);
+}
+QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled, QSpinBox:disabled, QDoubleSpinBox:disabled, QTimeEdit:disabled, QDateEdit:disabled, QDateTimeEdit:disabled {
+    color: #b9b9b9;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gl_signup">
+      <property name="leftMargin">
+       <number>14</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>14</number>
+      </property>
+      <property name="bottomMargin">
+       <number>14</number>
+      </property>
+      <item row="5" column="1">
+       <widget class="QPushButton" name="btn_sendsignup">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="text">
+         <string>ثبت</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QPushButton" name="btn_delete">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  background-color: rgb(255, 0, 0);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid rgb(255, 179, 0);
+  padding: 5px 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  outline: 0px;
+  font: 10pt ;
+}
+
+QPushButton:hover{
+  background-color: rgb(236, 118, 0);
+}
+
+QPushButton:pressed{
+  background-color: rgb(255, 227, 82);
+  border-color:;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 3px solid rgb(255, 170, 0);
+  padding: 5px 15px;
+  margin-top: 0px;
+  outline: 0px;
+  color: rgb(255, 170, 0);
+}</string>
+        </property>
+        <property name="text">
+         <string>حذف کاربر</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QLineEdit" name="txt_username">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="placeholderText">
+         <string>نام کاربری</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QLineEdit" name="txt_password">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="placeholderText">
+         <string>رمز عبور</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QLineEdit" name="txt_repeatpassword">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="placeholderText">
+         <string>تکرار رمز عبور</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="lbl_signup">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum ExtraBold</family>
+          <pointsize>12</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="text">
+         <string>ثبت کاربر جدید</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::PlainText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>txt_username</tabstop>
+  <tabstop>txt_password</tabstop>
+  <tabstop>txt_repeatpassword</tabstop>
+  <tabstop>btn_sendsignup</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

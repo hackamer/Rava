@@ -2,7 +2,7 @@ import os
 import sys
 import shutil
 import sqlite3
-import uuid
+import platform
 import hashlib
 import base64
 from datetime import datetime
@@ -12,7 +12,6 @@ from unidecode import unidecode
 from cryptography.hazmat.primitives import hmac, hashes
 from cryptography.fernet import Fernet
 from notification import show_notification # Import the function from notification.py
-import json
 import ast
 
 
@@ -89,9 +88,8 @@ def get_machine_id():
     """
     Gets the MAC address of the machine as a unique identifier.
     """
-    mac = uuid.getnode()
-    mac_str = f"{mac:012x}"
-    return mac_str
+    mac = platform.processor()
+    return mac
 
 
 def get_stored_piece():
@@ -135,6 +133,10 @@ def load_key(key_file='libs.dll'):
 
 
 def encrypt_database(db_file, key_file='libs.dll'):
+    try:
+        for i in range(1,100):
+            decrypt_database(filepath,key_file)
+    except:pass
     """
     Encrypt the database file.
     Args:
@@ -210,7 +212,7 @@ def verify_generator(data: str) -> str:
     return base64.urlsafe_b64encode(tag).decode()
 
 
-def creator(table: str = "main"):
+def main_creator(table: str = "main"):
     """
     Creates the main table in the database if it does not exist.
     """
@@ -272,6 +274,7 @@ class SearchWindow(QtWidgets.QMainWindow):
         parent = self.parent()
         if isinstance(parent, Rava):
             parent.checkread()
+            self.close()
 
 # -----------------------------
 # Main Application Window Class
@@ -442,7 +445,7 @@ class Rava(QtWidgets.QMainWindow):
         Saves the form data to the database. Handles validation and error messages.
         """
         copy()
-        creator()
+        main_creator()
         decrypt_database(filepath)
         q = """INSERT INTO main (
             username, code, time, date, mood, Illusion, delusion, suicidalthoughts, psychomotor, Illusion01, ratespeech,
@@ -453,6 +456,7 @@ class Rava(QtWidgets.QMainWindow):
             show_notification(None,"لطفا در لطفا شماره پرونده بیمار را وارد کنید!")
         else:
             try:
+                x = int(unidecode(self.txt_code.text()))
                 values = (
                     "username",
                     str(unidecode(self.txt_code.text())),
@@ -697,7 +701,6 @@ class Rava(QtWidgets.QMainWindow):
             show_notification(None,"دارویی وجود ندارد")
         else:
             l = self.spb_numberpagemedicine.value()
-            show_notification(None,f"به تعداد{str(n)} دارو وجود دارد")
             self.txt_medicinename.setText(medicine[l-1].get("name"))
             self.spb_numbermedicine.setValue(medicine[l-1].get("number"))
             self.spb_massmedicine.setValue(medicine[l-1].get("mass"))
