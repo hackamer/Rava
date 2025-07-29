@@ -569,7 +569,7 @@ class Rava(QtWidgets.QMainWindow):
             "txt_day", "txt_month", "txt_year",
             "btn_pagemedicine", "lbl_pagemedicine", "lbl_pagemedicineX",
             "spb_numberpagemedicine", "btn_pagereport", "lbl_pagereport",
-            "spb_numberpagereport", "lbl_pagereportX", "btn_checkread"
+            "spb_numberpagereport", "lbl_pagereportX", "btn_checkread","btn_back"
         }
         with open("ui/main.qss", encoding="utf-8") as f:
             self.setStyleSheet(f.read())
