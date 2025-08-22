@@ -1,5 +1,5 @@
-bcrypt
-supabase
 PyQt5
-pytz
-datetime
+jdatetime
+unidecode
+cryptography
+bcrypt
