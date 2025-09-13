@@ -144,7 +144,11 @@ pip install PyQt5 bcrypt cryptography jdatetime unidecode
 ```bash
 python main.py
 ```
+و یا 
 
+```bash
+python full.py
+```
 پنجره ورود ظاهر می‌شود. از مشخصات پیش‌فرض ادمین برای ایجاد کاربران و مدیریت گزارش‌ها استفاده کنید:
 
 * **نام کاربری:** admin
@@ -154,6 +158,12 @@ python main.py
 
 ```bash
 python main.py
+```
+
+or
+
+```bash
+python full.py
 ```
 
 The login window will appear. Use the default admin credentials to create users and start managing reports:
