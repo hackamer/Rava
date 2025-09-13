@@ -114,7 +114,7 @@ def insertor(username: str, password: str, table: str = "login_data") -> bool:
     return True
 
 
-def remover(username: str, table="rava_login") -> str:
+def remover(username: str, table="login_data") -> str:
     """
     Remove a user from the specified table and return status.
     """
@@ -122,16 +122,18 @@ def remover(username: str, table="rava_login") -> str:
     decrypt_database(filepath)
     q = f"DELETE FROM {table} WHERE username = ?"
     cursor.execute(q, (username,))
-    result = cursor.fetchall()
+    result = cursor.rowcount
     connection.commit()
     encrypt_database(filepath)
-    if result:
+    if result >0:
+        print("OK")
         return "OK"
     else:
+        print("NO")
         return "NO"
 
 
-def selector(username: str, table="rava_login"):
+def selector(username: str, table="login_data"):
     """
     Return the username if found in the specified table; otherwise False.
     """

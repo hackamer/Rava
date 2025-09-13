@@ -173,6 +173,8 @@ The login window will appear. Use the default admin credentials to create users 
 * `encryption.py`: کدهای رمزگذاری و رمزگشایی فایل‌ها.
 * `config.py`: مقادیر پایه و مهم.
 * `database.py`: کد تغییرات دیتابیس.
+* `full.py`: کد کامل برنامه بدون وابستگی.
+
 * `ui/`: پوشه حاوی فایل‌های UI با فرمت `.ui`.
 * `images/`: آیکون‌ها و لوگوهای برنامه.
 * `ui/fonts/`: فونت‌های استفاده‌شده در برنامه.
@@ -186,6 +188,7 @@ The login window will appear. Use the default admin credentials to create users 
 * `encryption.py`: Code for encrypting and decrypting files.
 * `config.py`: Base and important values.
 * `database.py`: Database modification code.
+* `full.py`: full code with out need to here other codes.
 * `ui/`: Directory containing PyQt5 UI `.ui` files.
 * `images/`: Application icons and logos.
 * `ui/fonts/`: Fonts used in the application.
