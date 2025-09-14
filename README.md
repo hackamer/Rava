@@ -1,6 +1,5 @@
 # Rava Desktop Application / نرم‌افزار دسکتاپ Rava
 
-\[TOC]
 
 این فایل `README.md` به صورت دوزبانه (فارسی و انگلیسی) طراحی شده و شامل لینک‌ها برای دسترسی سریع به بخش‌ها است.
 
@@ -183,6 +182,7 @@ The login window will appear. Use the default admin credentials to create users 
 * `encryption.py`: کدهای رمزگذاری و رمزگشایی فایل‌ها.
 * `config.py`: مقادیر پایه و مهم.
 * `database.py`: کد تغییرات دیتابیس.
+* `backup.py`: کد هوشمند بکآپ گرفتن فایل های مهم
 * `full.py`: کد کامل برنامه بدون وابستگی.
 
 * `ui/`: پوشه حاوی فایل‌های UI با فرمت `.ui`.
@@ -198,6 +198,7 @@ The login window will appear. Use the default admin credentials to create users 
 * `encryption.py`: Code for encrypting and decrypting files.
 * `config.py`: Base and important values.
 * `database.py`: Database modification code.
+* `backup.py`: Smart make backup for system.
 * `full.py`: full code with out need to here other codes.
 * `ui/`: Directory containing PyQt5 UI `.ui` files.
 * `images/`: Application icons and logos.

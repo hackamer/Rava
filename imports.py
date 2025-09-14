@@ -16,6 +16,8 @@ from PyQt5.QtCore import (Qt, QPropertyAnimation, QTimer,
                           QPoint, QEasingCurve, pyqtProperty)  # type: ignore
 import ast
 import bcrypt
+import zipfile
+
 
 class RavaAppError(Exception):
     pass
