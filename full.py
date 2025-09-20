@@ -1,3 +1,14 @@
+"""
+بسم الله الرحمن الرحیم.
+"""
+"""
+In the name of Allah, the Most Gracious, the Most Merciful.
+"""
+"""
+full.py - Main application module.
+This module implements the main application window and search functionality.
+"""
+
 import os
 import sys
 import shutil
@@ -11,8 +22,7 @@ from PyQt5 import uic, QtGui, QtWidgets, QtCore
 from unidecode import unidecode
 from cryptography.hazmat.primitives import hmac, hashes
 from cryptography.fernet import Fernet
-from PyQt5.QtWidgets import (QFrame, QLabel, QHBoxLayout, QApplication)
-from PyQt5.QtCore import (Qt, QPropertyAnimation, QTimer,
+from PyQt5.QtCore import (QPropertyAnimation, QTimer,
                           QPoint, QEasingCurve, pyqtProperty)  # type: ignore
 import ast
 import bcrypt
@@ -101,59 +111,6 @@ except FileExistsError:
     pass
 
 
-
-# =============================================================================
-# PERSIAN CALENDAR DATE FUNCTIONS
-# =============================================================================
-
-def get_shamsi_date_str():
-    """
-    Get the current date in Persian (Shamsi/Jalali) calendar format.
-    
-    Converts the current Gregorian date to Persian calendar and returns
-    it in a standardized YYYY/MM/DD format suitable for medical reports.
-    
-    Returns:
-        str: Current date in Persian calendar format (YYYY/MM/DD)
-        
-    Example:
-        >>> get_shamsi_date_str()
-        '1403/09/15'
-    """
-    # Get current Gregorian date and time
-    current_datetime = datetime.now()
-    
-    # Convert to Persian (Shamsi) calendar
-    persian_datetime = jdatetime.datetime.fromgregorian(datetime=current_datetime)
-    
-    # Format as YYYY/MM/DD with zero-padding
-    return f"{persian_datetime.year:04d}/{persian_datetime.month:02d}/{persian_datetime.day:02d}"
-
-
-def get_shamsi_time_str():
-    """
-    Get the current time in Persian calendar context.
-    
-    Returns the current time in HH:MM:SS format, maintaining consistency
-    with the Persian calendar system used throughout the application.
-    
-    Returns:
-        str: Current time in HH:MM:SS format
-        
-    Example:
-        >>> get_shamsi_time_str()
-        '14:30:25'
-    """
-    # Get current Gregorian date and time
-    current_datetime = datetime.now()
-    
-    # Convert to Persian (Shamsi) calendar
-    persian_datetime = jdatetime.datetime.fromgregorian(datetime=current_datetime)
-    
-    # Format as HH:MM:SS with zero-padding
-    return f"{persian_datetime.hour:02d}:{persian_datetime.minute:02d}:{persian_datetime.second:02d}"
-
-
 # =============================================================================
 # DATABASE CONNECTION
 # =============================================================================
@@ -161,6 +118,7 @@ def get_shamsi_time_str():
 # Initialize SQLite database connection
 connection = sqlite3.connect(filepath)
 cursor = connection.cursor()
+
 
 def get_file_hash(file_path):
     """
@@ -293,6 +251,8 @@ def zip_files(file_list):
                 zip_file.write(file_path, arcname=os.path.basename(file_path))
                 # Remove original file after successful compression
                 os.remove(file_path)
+
+
 # =============================================================================
 # BACKUP AND FILE MANAGEMENT
 # =============================================================================
@@ -551,6 +511,8 @@ def verify_generator(data: str) -> str:
     # Return base64-encoded tag
     return base64.urlsafe_b64encode(verification_tag).decode()
 
+
+
 # =============================================================================
 # GLOBAL MESSAGE VARIABLES
 # =============================================================================
@@ -695,13 +657,13 @@ def Login(username: str, password: str) -> bool:
         encrypt_database(filepath)
         
         if auth_result:
-            login_msg = "Login successful."
+            login_msg = "ورود با موفقیت انجام شد"
             return True
         else:
-            login_msg = "Username or password is incorrect."
+            login_msg = "نام کاربری یا رمز عبور اشتباه است"
             return False
     else:
-        login_msg = "Username or password is incorrect."
+        login_msg = "نام کاربری یا رمز عبور اشتباه است"
         return False
 
 
@@ -724,10 +686,9 @@ def insertor(username: str, password: str, table: str = "login_data") -> bool:
     
     # Ensure table exists
     creator()
-    
     # Check if username already exists
     if username == selector(username, table):
-        signup_msg = "Username already exists."
+        signup_msg = "نام کاربری تکراری است"
         return False
     
     # Generate salt and hash password
@@ -741,7 +702,7 @@ def insertor(username: str, password: str, table: str = "login_data") -> bool:
     connection.commit()
     encrypt_database(filepath)
     
-    signup_msg = "User registered successfully."
+    signup_msg = "نام کاربری با موفقیت ثبت شد"
     return True
 
 
@@ -828,6 +789,58 @@ def get_signup_msg() -> str:
     """
     return signup_msg
 
+# =============================================================================
+# PERSIAN CALENDAR DATE FUNCTIONS
+# =============================================================================
+
+def get_shamsi_date_str():
+    """
+    Get the current date in Persian (Shamsi/Jalali) calendar format.
+    
+    Converts the current Gregorian date to Persian calendar and returns
+    it in a standardized YYYY/MM/DD format suitable for medical reports.
+    
+    Returns:
+        str: Current date in Persian calendar format (YYYY/MM/DD)
+        
+    Example:
+        >>> get_shamsi_date_str()
+        '1403/09/15'
+    """
+    # Get current Gregorian date and time
+    current_datetime = datetime.now()
+    
+    # Convert to Persian (Shamsi) calendar
+    persian_datetime = jdatetime.datetime.fromgregorian(datetime=current_datetime)
+    
+    # Format as YYYY/MM/DD with zero-padding
+    return f"{persian_datetime.year:04d}/{persian_datetime.month:02d}/{persian_datetime.day:02d}"
+
+
+def get_shamsi_time_str():
+    """
+    Get the current time in Persian calendar context.
+    
+    Returns the current time in HH:MM:SS format, maintaining consistency
+    with the Persian calendar system used throughout the application.
+    
+    Returns:
+        str: Current time in HH:MM:SS format
+        
+    Example:
+        >>> get_shamsi_time_str()
+        '14:30:25'
+    """
+    # Get current Gregorian date and time
+    current_datetime = datetime.now()
+    
+    # Convert to Persian (Shamsi) calendar
+    persian_datetime = jdatetime.datetime.fromgregorian(datetime=current_datetime)
+    
+    # Format as HH:MM:SS with zero-padding
+    return f"{persian_datetime.hour:02d}:{persian_datetime.minute:02d}:{persian_datetime.second:02d}"
+
+
 class SearchWindow(QtWidgets.QMainWindow):
     """
     Search window for querying medical reports by patient code and date.
@@ -847,7 +860,9 @@ class SearchWindow(QtWidgets.QMainWindow):
         self.connectors()
 
     def widgets(self):
-        """Initialize and bind UI widgets to class attributes."""
+        """
+        Initialize and bind UI widgets to class attributes.
+        """
         self.txt_code = self.findChild(QtWidgets.QLineEdit, "txt_code")
         self.txt_day = self.findChild(QtWidgets.QLineEdit, "txt_day")
         self.txt_month = self.findChild(QtWidgets.QLineEdit, "txt_month")
@@ -855,15 +870,17 @@ class SearchWindow(QtWidgets.QMainWindow):
         self.btn_sendsearch = self.findChild(QtWidgets.QPushButton, "btn_sendsearch")
 
     def connectors(self):
-        """Connect UI signals to their respective slot methods."""
+        """
+        Connect UI signals to their respective slot methods.
+        """
         self.btn_sendsearch.clicked.connect(self.send_search)
 
     def send_search(self):
         """
         Process search form data and trigger report retrieval.
-        
-        Collects search criteria (patient code, date) and initiates
-        the search process in the parent window.
+
+        Collects search criteria (patient code, date) and initiates the search process
+        in the parent window.
         """
         global search_data
         search_data = {
@@ -882,9 +899,9 @@ class SearchWindow(QtWidgets.QMainWindow):
 class Rava(QtWidgets.QMainWindow):
     """
     Main application window for medical report management.
-    
-    Handles report creation, editing, searching, and medicine tracking
-    with comprehensive data validation and encryption.
+
+    Handles report creation, editing, searching, and medicine tracking with
+    comprehensive data validation and encryption.
     """
     
     def __init__(self):
@@ -921,7 +938,7 @@ class Rava(QtWidgets.QMainWindow):
     def widgets(self):
         """
         Initialize and bind all UI widgets to class attributes.
-        
+
         Organizes widgets by category for better maintainability:
         - Labels for display and pagination
         - ComboBoxes for selection fields
@@ -1005,13 +1022,15 @@ class Rava(QtWidgets.QMainWindow):
         
         # Menu for user options
         self.menu = self.findChild(QtWidgets.QMenu, 'menu_2')
+        self.menu_logout = self.findChild(QtWidgets.QMenu, 'menu_logout')
+        self.menu_signup = self.findChild(QtWidgets.QMenu, 'menu_signup')
 
     def connectors(self):
         """
         Connect UI signals to their respective slot methods.
-        
-        Establishes event handlers for all interactive elements
-        including buttons, form submissions, and navigation controls.
+
+        Establishes event handlers for all interactive elements including buttons, form
+        submissions, and navigation controls.
         """
         # Form action buttons
         self.btn_save.clicked.connect(self.save)
@@ -1025,15 +1044,32 @@ class Rava(QtWidgets.QMainWindow):
         self.btn_pagereport.clicked.connect(self.read)
         self.btn_pagemedicine.clicked.connect(self.readdrug)
         
-        # Set welcome message in menu
+        # Menus connectors
         self.menu.setTitle(f"خوش آمدی {u}")
+        self.menu_signup.hide()
+        self.menu_logout.aboutToShow.connect(self.logout)
+        self.menu_signup.aboutToShow.connect(self.goto_signup)
+        if u.startswith("admin"):
+            self.menu_signup.show()
+        else:
+            self.menu_signup.deleteLater()
 
+    def logout(self):
+        self.newwindow = Login_UI()
+        self.newwindow.show()
+        self.close()
+
+    def goto_signup(self):
+        if u.startswith("admin"):
+            self.newwindow = Signup_UI()
+            self.newwindow.show()
+            self.close()
     def open_search_window(self):
         """
         Open the search window for report queries.
-        
-        Creates and displays a new SearchWindow instance
-        for querying medical reports by patient code and date.
+
+        Creates and displays a new SearchWindow instance for querying medical reports by
+        patient code and date.
         """
         search_window = SearchWindow(self)
         search_window.show()
@@ -1041,17 +1077,17 @@ class Rava(QtWidgets.QMainWindow):
     def verify_get(self, time, date, drug, code, username):
         """
         Generate verification hash for data integrity validation.
-        
+
         Creates a comprehensive hash from all form fields to ensure
         data integrity and detect unauthorized modifications.
-        
+
         Args:
             time (str): Report timestamp
             date (str): Report date
             drug (list): Medicine data
             code (str): Patient code
             username (str): Reporter username
-            
+
         Returns:
             str: Verification hash for data integrity check
         """
@@ -1091,9 +1127,9 @@ class Rava(QtWidgets.QMainWindow):
     def save(self):
         """
         Save medical report data to the database with comprehensive validation.
-        
-        Performs data validation, encryption handling, and database insertion
-        with proper error handling and user feedback.
+
+        Performs data validation, encryption handling, and database insertion with
+        proper error handling and user feedback.
         """
         global drugs
         
@@ -1174,9 +1210,9 @@ class Rava(QtWidgets.QMainWindow):
     def savemedicine(self):
         """
         Add medicine entry to the current report's medicine list.
-        
-        Validates medicine data and adds it to the in-memory drugs list
-        for inclusion in the medical report.
+
+        Validates medicine data and adds it to the in-memory drugs list for inclusion in
+        the medical report.
         """
         global drugs
         
@@ -1206,7 +1242,7 @@ class Rava(QtWidgets.QMainWindow):
     def calculateBMI(self):
         """
         Calculate Body Mass Index (BMI) from weight and height inputs.
-        
+
         Validates input ranges and calculates BMI using the standard formula:
         BMI = weight(kg) / height(m)²
         """
@@ -1235,9 +1271,9 @@ class Rava(QtWidgets.QMainWindow):
     def readmode(self):
         """
         Switch to read-only mode for viewing existing reports.
-        
-        Applies read-only styling and enables only navigation and search widgets.
-        Hides editing controls and shows pagination elements for report browsing.
+
+        Applies read-only styling and enables only navigation and search widgets. Hides
+        editing controls and shows pagination elements for report browsing.
         """
         self.cleardrug()
         
@@ -1272,9 +1308,9 @@ class Rava(QtWidgets.QMainWindow):
     def back(self):
         """
         Exit read-only mode and restore primary editing interface.
-        
-        Clears form data, applies main stylesheet, and re-enables
-        all editing controls while hiding read-only navigation elements.
+
+        Clears form data, applies main stylesheet, and re-enables all editing controls
+        while hiding read-only navigation elements.
         """
         self.cleardrug()
         self.cleardata()
@@ -1312,9 +1348,9 @@ class Rava(QtWidgets.QMainWindow):
     def checkread(self):
         """
         Execute search query and prepare pagination for report results.
-        
-        Searches for medical reports based on patient code and optional date.
-        Validates date inputs and sets up pagination controls for results.
+
+        Searches for medical reports based on patient code and optional date. Validates
+        date inputs and sets up pagination controls for results.
         """
         global response, search_data
         
@@ -1471,9 +1507,9 @@ class Rava(QtWidgets.QMainWindow):
     def cleardrug(self):
         """
         Clear all medicine-related form fields to default values.
-        
-        Resets medicine name, quantity, mass, type, and time fields
-        to their initial state for new medicine entry.
+
+        Resets medicine name, quantity, mass, type, and time fields to their initial
+        state for new medicine entry.
         """
         self.txt_medicinename.clear()
         self.spb_numbermedicine.setValue(0)
@@ -1484,9 +1520,9 @@ class Rava(QtWidgets.QMainWindow):
     def cleardata(self):
         """
         Clear all form fields to their default state.
-        
-        Uses a dictionary-based approach to reset different widget types
-        to their appropriate default values efficiently.
+
+        Uses a dictionary-based approach to reset different widget types to their
+        appropriate default values efficiently.
         """
         # Define clearing actions for each widget type
         clear_actions = {
@@ -1508,9 +1544,9 @@ class Rava(QtWidgets.QMainWindow):
 class Signup_UI(QtWidgets.QMainWindow):
     """
     User registration and management interface.
-    
-    Handles new user creation and user deletion with proper
-    validation and permission checking.
+
+    Handles new user creation and user deletion with proper validation and permission
+    checking.
     """
     
     def __init__(self):
@@ -1532,7 +1568,9 @@ class Signup_UI(QtWidgets.QMainWindow):
         self.connectors()
 
     def widgets(self):
-        """Initialize and bind signup form widgets."""
+        """
+        Initialize and bind signup form widgets.
+        """
         self.txt_username = self.findChild(QtWidgets.QLineEdit, 'txt_username')
         self.txt_password = self.findChild(QtWidgets.QLineEdit, 'txt_password')
         self.txt_repeatpassword = self.findChild(QtWidgets.QLineEdit, 'txt_repeatpassword')
@@ -1540,16 +1578,18 @@ class Signup_UI(QtWidgets.QMainWindow):
         self.btn_delete = self.findChild(QtWidgets.QPushButton, 'btn_delete')
 
     def connectors(self):
-        """Connect signup form actions to their handlers."""
+        """
+        Connect signup form actions to their handlers.
+        """
         self.btn_sendsignup.clicked.connect(self.sendsignup)
         self.btn_delete.clicked.connect(self.delete)
 
     def sendsignup(self):
         """
         Process user registration with comprehensive validation.
-        
-        Validates form inputs, checks admin permissions, and creates
-        new user accounts with proper error handling and user feedback.
+
+        Validates form inputs, checks admin permissions, and creates new user accounts
+        with proper error handling and user feedback.
         """
         username = self.txt_username.text()
         password = self.txt_password.text()
@@ -1589,7 +1629,9 @@ class Signup_UI(QtWidgets.QMainWindow):
             self._reset_signup_button()
     
     def _reset_signup_button(self):
-        """Reset signup button to normal state."""
+        """
+        Reset signup button to normal state.
+        """
         self.btn_sendsignup.setEnabled(True)
         self.btn_sendsignup.setText("ثبت نام")
         self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
@@ -1597,9 +1639,9 @@ class Signup_UI(QtWidgets.QMainWindow):
     def delete(self):
         """
         Delete user account with proper permission validation.
-        
-        Ensures only authorized users can delete accounts and prevents
-        admin users from deleting other admin accounts.
+
+        Ensures only authorized users can delete accounts and prevents admin users from
+        deleting other admin accounts.
         """
         username_to_delete = self.txt_username.text()
         
@@ -1626,7 +1668,7 @@ class Signup_UI(QtWidgets.QMainWindow):
     def returnlogin(self):
         """
         Navigate back to the login window.
-        
+
         Creates a new login window instance and closes the current signup window.
         """
         self.login = Login_UI()
@@ -1637,9 +1679,9 @@ class Signup_UI(QtWidgets.QMainWindow):
 class Login_UI(QtWidgets.QMainWindow):
     """
     User authentication interface.
-    
-    Handles user login with credential validation and provides
-    access to the main application upon successful authentication.
+
+    Handles user login with credential validation and provides access to the main
+    application upon successful authentication.
     """
     
     def __init__(self):
@@ -1660,25 +1702,25 @@ class Login_UI(QtWidgets.QMainWindow):
         icon.addPixmap(QtGui.QPixmap("ui/images/ravalogo.png"))
         self.setWindowIcon(icon)
         
-        # Disable signup link initially (enabled after admin login)
-        self.lnk_signup.setEnabled(False)
 
     def widgets(self):
-        """Initialize and bind login form widgets."""
+        """
+        Initialize and bind login form widgets.
+        """
         self.btn_sendlogin = self.findChild(QtWidgets.QPushButton, 'btn_sendlogin')
-        self.lnk_signup = self.findChild(QtWidgets.QCommandLinkButton, 'lnk_signup')
         self.txt_username = self.findChild(QtWidgets.QLineEdit, 'txt_username')
         self.txt_password = self.findChild(QtWidgets.QLineEdit, 'txt_password')
 
     def connectors(self):
-        """Connect login form actions to their handlers."""
+        """
+        Connect login form actions to their handlers.
+        """
         self.btn_sendlogin.clicked.connect(self.sendlogin)
-        self.lnk_signup.clicked.connect(self.opensignup)
 
     def opensignup(self):
         """
         Navigate to the signup window.
-        
+
         Creates a new signup window instance and closes the current login window.
         """
         self.signup = Signup_UI()
@@ -1688,9 +1730,9 @@ class Login_UI(QtWidgets.QMainWindow):
     def sendlogin(self):
         """
         Process user login with authentication and session management.
-        
-        Validates credentials, handles admin privileges, and launches
-        the main application window upon successful authentication.
+
+        Validates credentials, handles admin privileges, and launches the main
+        application window upon successful authentication.
         """
         global u
         
@@ -1720,7 +1762,7 @@ class Login_UI(QtWidgets.QMainWindow):
                 
                 # Enable signup for admin users
                 if username.startswith("admin"):
-                    self.lnk_signup.setEnabled(True)
+                    
                     show_notification(None, "یوزر ادمین خوش آمدی!!")
                 
                 # Show login success message
@@ -1729,8 +1771,8 @@ class Login_UI(QtWidgets.QMainWindow):
                 # Launch main application
                 self.main = Rava()
                 self.main.show()
-                self.main.showMaximized()
-                self.showMinimized()
+                self.main.showNormal()
+                self.close()
             else:
                 # Show login failure message
                 show_notification(None, get_login_msg())
@@ -1743,6 +1785,10 @@ class Login_UI(QtWidgets.QMainWindow):
             self.btn_sendlogin.setEnabled(True)
             self.btn_sendlogin.setText("ورود")
             self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
+
+
+# Initialize default admin user
+insertor("admin", "P@ssw0rd")
 
 
 # =============================================================================
@@ -1964,12 +2010,10 @@ def msg(text: str, status: str):
     elif status == "I":
         QtWidgets.QMessageBox.information(None, "پیام نرم افزار راوا", text)
 
-# Initialize default admin user
-insertor("admin", "P@ssw0rd")
-
 if __name__ == "__main__":
     # Create and run the application
     app = QtWidgets.QApplication(sys.argv)
     window = Login_UI()
     window.show()
     sys.exit(app.exec_())
+

@@ -162,13 +162,13 @@ def Login(username: str, password: str) -> bool:
         encrypt_database(filepath)
         
         if auth_result:
-            login_msg = "Login successful."
+            login_msg = "ورود با موفقیت انجام شد"
             return True
         else:
-            login_msg = "Username or password is incorrect."
+            login_msg = "نام کاربری یا رمز عبور اشتباه است"
             return False
     else:
-        login_msg = "Username or password is incorrect."
+        login_msg = "نام کاربری یا رمز عبور اشتباه است"
         return False
 
 
@@ -191,10 +191,9 @@ def insertor(username: str, password: str, table: str = "login_data") -> bool:
     
     # Ensure table exists
     creator()
-    
     # Check if username already exists
     if username == selector(username, table):
-        signup_msg = "Username already exists."
+        signup_msg = "نام کاربری تکراری است"
         return False
     
     # Generate salt and hash password
@@ -208,7 +207,7 @@ def insertor(username: str, password: str, table: str = "login_data") -> bool:
     connection.commit()
     encrypt_database(filepath)
     
-    signup_msg = "User registered successfully."
+    signup_msg = "نام کاربری با موفقیت ثبت شد"
     return True
 
 

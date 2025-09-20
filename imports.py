@@ -11,8 +11,7 @@ from PyQt5 import uic, QtGui, QtWidgets, QtCore
 from unidecode import unidecode
 from cryptography.hazmat.primitives import hmac, hashes
 from cryptography.fernet import Fernet
-from PyQt5.QtWidgets import (QFrame, QLabel, QHBoxLayout, QApplication)
-from PyQt5.QtCore import (Qt, QPropertyAnimation, QTimer,
+from PyQt5.QtCore import (QPropertyAnimation, QTimer,
                           QPoint, QEasingCurve, pyqtProperty)  # type: ignore
 import ast
 import bcrypt

@@ -291,32 +291,67 @@ QCommandLinkButton{
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item row="5" column="1">
-       <widget class="QCommandLinkButton" name="lnk_signup">
+      <item row="2" column="0" colspan="2">
+       <widget class="QLineEdit" name="txt_username">
         <property name="font">
          <font>
-          <family>IRANYekanXFaNum ExtraBold</family>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
           <kerning>false</kerning>
          </font>
         </property>
-        <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
-        </property>
-        <property name="text">
-         <string>ثبت کاربر جدید</string>
-        </property>
-        <property name="autoDefault">
-         <bool>false</bool>
-        </property>
-        <property name="default">
-         <bool>false</bool>
-        </property>
-        <property name="description">
-         <string/>
+        <property name="placeholderText">
+         <string>نام کاربری</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0" colspan="3">
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="lbl_login">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum ExtraBold</family>
+          <pointsize>12</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="text">
+         <string>صفحه ورود</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::PlainText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QLineEdit" name="txt_password">
+        <property name="font">
+         <font>
+          <family>IRANYekanXFaNum</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="placeholderText">
+         <string>رمز عبور</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
        <widget class="QPushButton" name="btn_sendlogin">
         <property name="font">
          <font>
@@ -363,66 +398,6 @@ QPushButton:pressed{
         </property>
        </widget>
       </item>
-      <item row="3" column="0" colspan="3">
-       <widget class="QLineEdit" name="txt_password">
-        <property name="font">
-         <font>
-          <family>IRANYekanXFaNum</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-          <kerning>false</kerning>
-         </font>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Password</enum>
-        </property>
-        <property name="placeholderText">
-         <string>رمز عبور</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" colspan="3">
-       <widget class="QLineEdit" name="txt_username">
-        <property name="font">
-         <font>
-          <family>IRANYekanXFaNum</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-          <kerning>false</kerning>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>نام کاربری</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="3">
-       <widget class="QLabel" name="lbl_login">
-        <property name="font">
-         <font>
-          <family>IRANYekanXFaNum ExtraBold</family>
-          <pointsize>12</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-          <kerning>false</kerning>
-         </font>
-        </property>
-        <property name="text">
-         <string>صفحه ورود</string>
-        </property>
-        <property name="textFormat">
-         <enum>Qt::PlainText</enum>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
    </layout>
@@ -432,7 +407,6 @@ QPushButton:pressed{
   <tabstop>txt_username</tabstop>
   <tabstop>txt_password</tabstop>
   <tabstop>btn_sendlogin</tabstop>
-  <tabstop>lnk_signup</tabstop>
  </tabstops>
  <resources/>
  <connections/>
